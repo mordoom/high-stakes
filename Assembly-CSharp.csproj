@@ -45,8 +45,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\VampireController.cs" />
-     <Compile Include="Assets\Scripts\WeaponAnimationController.cs" />
+     <Compile Include="Assets\OpenCoffin.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityProjects/vampires/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -628,6 +627,10 @@
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{AA79C55F-2CE3-3D46-6F5A-66C68DD2EE63}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="GameAssembly.csproj">
+      <Project>{5F259DC3-85F5-1E83-D396-29026792F52E}</Project>
+      <Name>GameAssembly</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
