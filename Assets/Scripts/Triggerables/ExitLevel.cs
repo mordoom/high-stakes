@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ExitLevel : MonoBehaviour, Triggerable {
+public class ExitLevel : Triggerable {
     private GameManager gameManager;
     private bool open;
     public GameObject exitLight;
@@ -19,7 +19,7 @@ public class ExitLevel : MonoBehaviour, Triggerable {
         }
     }
 
-    public void Interact () {
+    public override void Interact () {
         if (open) {
             gameManager.NextLevel();
         } else {

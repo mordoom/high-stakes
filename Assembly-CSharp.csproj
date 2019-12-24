@@ -45,7 +45,176 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\OpenCoffin.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrush.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\CurvedStairBrush.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\HollowBoxBrush.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Bezier.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Decomposition\BayazitDecomposer.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Decomposition\SeidelDecomposer.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\ISelectable.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Pivot.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Project.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Segment.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\SegmentType.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Shape.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\ShapeEditorBrush.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\StairBrush.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\TrimBrush.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\GroupBrush.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\PrimitiveBrush.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\AudioVolume\VolumetricAudioVolume.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\AudioVolume\VolumetricAudioVolumeComponent.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\PhysicsVolume\PhysicsVolume.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\PhysicsVolume\PhysicsVolumeComponent.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\PhysicsVolume\PhysicsVolumeForceMode.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\PhysicsVolume\PhysicsVolumeForceSpace.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\PhysicsVolume\PhysicsVolumeGravityMode.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\TriggerVolume\TriggerVolume.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\TriggerVolume\TriggerVolumeComponent.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\TriggerVolume\TriggerVolumeEvent.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\TriggerVolume\TriggerVolumeTriggerType.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Brushes\Volumes\Volume.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\CallbackEvents.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Compatibility\Vector2Int.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Constants.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\BrushBase.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\BuildEngine\BrushBuilder.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\BuildEngine\BrushCache.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\BuildEngine\CSGFactory.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\BuildEngine\MeshGroupManager.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\BuildEngine\Optimizer.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\BuildEngine\TriangulationNode.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\BuildMetrics.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\CSG\Brush.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\CSG\BrushChunk.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\CSG\Edge.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\CSG\Polygon.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\CSG\Vertex.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\CSG\VertexList.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\CSGBuildContext.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\CSGBuildSettings.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\Debugging\DebugTimer.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\Dictionaries\MaterialMeshDictionary.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\IDeepCopyable.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\MeshExtensions.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\PolygonEntry.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\PolygonFactory.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Core\SerializablePlane.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\CSGModel.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\CSGModelBase.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\CSGModelRuntime.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\CurrentSettings.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\ExpandPropertiesAttribute.cs.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Extensions\ColorHex.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Extensions\EditorHelper.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Extensions\EnumHelper.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Extensions\Extensions.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Extensions\MathHelper.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Extensions\Matrices\Matrix2x2.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Extensions\Matrices\Matrix3x2.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Extensions\StringHelper.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Extensions\TransformData.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Extensions\TransformHelper.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Extensions\WorldTransformData.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Geometry\AdjacencyFilters.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Geometry\AdjacencyHelper.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Geometry\BrushFactory.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Geometry\GeometryHelper.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Geometry\MeshHelper.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Geometry\OBJFactory.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Geometry\OBJVertexList.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Geometry\UVUtility.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\MaterialSearcher.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\Quake1\MapBrush.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\Quake1\MapBrushSide.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\Quake1\MapEntity.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\Quake1\MapImporter.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\Quake1\MapPlane.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\Quake1\MapVector2.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\Quake1\MapVector3.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\Quake1\MapWorld.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\Quake1\MapWorldConverter.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\UnrealGold\T3dActor.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\UnrealGold\T3dBrush.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\UnrealGold\T3dBrushFlags.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\UnrealGold\T3dImporter.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\UnrealGold\T3dMap.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\UnrealGold\T3dMapConverter.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\UnrealGold\T3dPolygon.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\UnrealGold\T3dPolygonFlags.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\UnrealGold\T3dRotator.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\UnrealGold\T3dVector3.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfAxis.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfEntity.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfImporter.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfPlane.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfSolid.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfSolidSide.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfVector3.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfWorld.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfWorldConverter.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Input\EditorKeyMappings.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Input\KeyMappings.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\IPostBuildListener.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\LinearFPSCam.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Pair.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\ClipEditor.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\DrawEditor.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\EdgeEditor.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\PaintEditor.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\ResizeEditor.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\ResizeHandlePair.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\SurfaceEditor.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\Tool.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\ToolSettingsPopup.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\TransformModelEditor.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\Utilities\BrushUtility.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\Utilities\ClipUtility.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\Utilities\DrawUtility.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\Utilities\EdgeUtility.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\Utilities\SurfaceUtility.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\Utilities\Vertex Weld Ops\VertexWeldCentroidOperation.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\Utilities\Vertex Weld Ops\VertexWeldOperation.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\Utilities\Vertex Weld Ops\VertexWeldToleranceOperation.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\Utilities\VertexUtility.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\Tools\VertexEditor.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\CSGGrid.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\GridManager.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\MaterialPaletteWindow.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\NamedVerticalScope.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\PaletteWindow.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\RadialMenu.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\SabreCSGPreferences.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\SabreCSGResources.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\SabreEditorGUI.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\SabreGraphics.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\SabreGUIHelper.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\SabreGUILayout.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\SabreInput.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\SabreMouse.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\Toolbar.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UI\VertexColorWindow.cs" />
+     <Compile Include="Assets\SabreCSG-master\Scripts\UpdateUtility.cs" />
+     <None Include="Assets\SabreCSG-master\Shaders\Handle.shader" />
+     <None Include="Assets\SabreCSG-master\Shaders\Line.shader" />
+     <None Include="Assets\SabreCSG-master\Internal\Shaders\BrushPreview.shader" />
+     <None Include="Assets\SabreCSG-master\Shaders\UINoAlpha.shader" />
+     <None Include="Assets\SabreCSG-master\Shaders\ShapeEditorLine.shader" />
+     <None Include="Assets\SabreCSG-master\Shaders\Preview.shader" />
+     <None Include="Assets\SabreCSG-master\Shaders\Diffuse-VertexColoredLit.shader" />
+     <None Include="Assets\NavMeshComponents\ProjectSettings\ProjectVersion.txt" />
+     <None Include="Assets\SabreCSG-master\Shaders\Tri-Planar.shader" />
+     <None Include="Assets\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Decomposition\LICENSE.txt" />
+     <None Include="Assets\SabreCSG-master\Shaders\Diffuse-VertexColored.shader" />
+     <None Include="Assets\SabreCSG-master\Shaders\SeeExcluded.shader" />
+     <None Include="Assets\SabreCSG-master\Shaders\LineDashed.shader" />
+     <None Include="Assets\SabreCSG-master\Shaders\ShapeEditorGrid.shader" />
+     <None Include="Assets\SabreCSG-master\Shaders\Plane.shader" />
+     <None Include="Assets\UrbanNightSky\Readme.txt" />
+     <None Include="Assets\SabreCSG-master\Shaders\VertexTinted.shader" />
+     <None Include="Assets\SabreCSG-master\Example Materials\Textures\update.txt" />
+     <None Include="Assets\SabreCSG-master\Internal\Shaders\Grayscale-GUITexture.shader" />
+     <None Include="Assets\SabreCSG-master\Shaders\LineDashedAlpha.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityProjects/vampires/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -628,9 +797,25 @@
       <Project>{AA79C55F-2CE3-3D46-6F5A-66C68DD2EE63}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsExamplesEditor.csproj">
+      <Project>{0DD6341B-C26C-552A-0FD2-1B9E8E4347EC}</Project>
+      <Name>NavMeshComponentsExamplesEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="GameAssembly.csproj">
       <Project>{5F259DC3-85F5-1E83-D396-29026792F52E}</Project>
       <Name>GameAssembly</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{7B373C89-9732-F3C3-52F5-BC537338C765}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{1AF1C734-CB1C-0844-6402-375278BCCE62}</Project>
+      <Name>NavMeshComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsExamples.csproj">
+      <Project>{9B541C5D-6BFE-F921-1575-6D4380DAAEAA}</Project>
+      <Name>NavMeshComponentsExamples</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

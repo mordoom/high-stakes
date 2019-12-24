@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 372}
+  m_MinSize: {x: 950, y: 544}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -111,10 +111,10 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1317
-  m_MinSize: {x: 679, y: 322}
-  m_MaxSize: {x: 12004, y: 8022}
+  m_MinSize: {x: 681, y: 494}
+  m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
-  controlID: 145
+  controlID: 55
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,12 +134,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 2080
+    width: 2010
     height: 1317
-  m_MinSize: {x: 404, y: 322}
-  m_MaxSize: {x: 8004, y: 8022}
+  m_MinSize: {x: 404, y: 494}
+  m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 64
+  controlID: 56
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -159,12 +159,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 2080
-    height: 869
+    width: 2010
+    height: 1045
   m_MinSize: {x: 404, y: 222}
   m_MaxSize: {x: 8004, y: 4022}
   vertical: 0
-  controlID: 65
+  controlID: 57
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -182,8 +182,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 263
-    height: 869
+    width: 400
+    height: 1045
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
@@ -207,10 +207,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 263
+    x: 400
     y: 0
-    width: 1817
-    height: 869
+    width: 1610
+    height: 1045
   m_MinSize: {x: 204, y: 222}
   m_MaxSize: {x: 4004, y: 4022}
   m_ActualView: {fileID: 18}
@@ -236,20 +236,20 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 869
-    width: 2080
-    height: 448
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 20}
+    y: 1045
+    width: 2010
+    height: 272
+  m_MinSize: {x: 232, y: 272}
+  m_MaxSize: {x: 10002, y: 10022}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 20}
   - {fileID: 21}
   - {fileID: 22}
   - {fileID: 23}
   - {fileID: 17}
-  m_Selected: 0
-  m_LastSelected: 4
+  m_Selected: 4
+  m_LastSelected: 0
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -265,9 +265,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 2080
+    x: 2010
     y: 0
-    width: 480
+    width: 550
     height: 1317
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
@@ -277,7 +277,7 @@ MonoBehaviour:
   - {fileID: 12}
   - {fileID: 14}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -298,9 +298,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1920
+    x: 2010
     y: 73
-    width: 638
+    width: 548
     height: 1298
   m_ViewDataDictionary: {fileID: 0}
   m_TestTypeToolbarIndex: 0
@@ -311,9 +311,9 @@ MonoBehaviour:
       uniqueId: '[vampires][suite]'
       name: vampires
       fullName: vampires
-      resultStatus: 1
-      duration: 0.2313866
-      messages: 
+      resultStatus: 4
+      duration: 0.5361975
+      messages: One or more child tests were ignored
       output: 
       stacktrace: 
       notRunnable: 0
@@ -323,12 +323,670 @@ MonoBehaviour:
       categories: []
       parentId: 
       parentUniqueId: 
+    - id: 1039
+      uniqueId: '[D:/UnityProjects/vampires/Library/ScriptAssemblies/NavMeshComponentsTestsPlaymode.dll][suite]'
+      name: NavMeshComponentsTestsPlaymode.dll
+      fullName: D:/UnityProjects/vampires/Library/ScriptAssemblies/NavMeshComponentsTestsPlaymode.dll
+      resultStatus: 4
+      duration: 0.284497
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[vampires][suite]'
+    - id: 1001
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceAgentTests][suite]
+      name: NavMeshSurfaceAgentTests
+      fullName: NavMeshSurfaceAgentTests
+      resultStatus: 4
+      duration: 0.0896828
+      messages: One or more child tests were ignored
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1039
+      parentUniqueId: '[D:/UnityProjects/vampires/Library/ScriptAssemblies/NavMeshComponentsTestsPlaymode.dll][suite]'
+    - id: 1004
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceAgentTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceAgentTests.AgentAlignsToSurfaceNextFrame]
+      name: AgentAlignsToSurfaceNextFrame
+      fullName: NavMeshSurfaceAgentTests.AgentAlignsToSurfaceNextFrame
+      resultStatus: 1
+      duration: 0.0394131
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceAgentTests][suite]
+    - id: 1048
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceAgentTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceAgentTests.AgentDetachesAndAttachesToSurface]
+      name: AgentDetachesAndAttachesToSurface
+      fullName: NavMeshSurfaceAgentTests.AgentDetachesAndAttachesToSurface
+      resultStatus: 4
+      duration: 0.0008303
+      messages: '1012991 : Missing functionality for notifying the NavMeshAgent about
+        the removal of the NavMesh.'
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 1
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1046
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceAgentTests][suite]
+    - id: 1005
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceAgentTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceAgentTests.AgentDoesNotAlignToSurfaceNextFrame]
+      name: AgentDoesNotAlignToSurfaceNextFrame
+      fullName: NavMeshSurfaceAgentTests.AgentDoesNotAlignToSurfaceNextFrame
+      resultStatus: 1
+      duration: 0.0208133
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceAgentTests][suite]
+    - id: 1002
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceAgentTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceAgentTests.AgentIdentifiesSurfaceOwner]
+      name: AgentIdentifiesSurfaceOwner
+      fullName: NavMeshSurfaceAgentTests.AgentIdentifiesSurfaceOwner
+      resultStatus: 1
+      duration: 0.005278
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceAgentTests][suite]
+    - id: 1006
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests][suite]
+      name: NavMeshSurfaceLinkTests
+      fullName: NavMeshSurfaceLinkTests
+      resultStatus: 1
+      duration: 0.0404438
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1039
+      parentUniqueId: '[D:/UnityProjects/vampires/Library/ScriptAssemblies/NavMeshComponentsTestsPlaymode.dll][suite]'
+    - id: 1009
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceLinkTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests.ChangingAreaTypeCanBlockPath]
+      name: ChangingAreaTypeCanBlockPath
+      fullName: NavMeshSurfaceLinkTests.ChangingAreaTypeCanBlockPath
+      resultStatus: 1
+      duration: 0.0049438
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1006
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests][suite]
+    - id: 1012
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceLinkTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests.ChangingCostModifierAffectsRoute]
+      name: ChangingCostModifierAffectsRoute
+      fullName: NavMeshSurfaceLinkTests.ChangingCostModifierAffectsRoute
+      resultStatus: 1
+      duration: 0.0024086
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1006
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests][suite]
+    - id: 1008
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceLinkTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests.DisablingBidirectionalMakesTheLinkOneWay]
+      name: DisablingBidirectionalMakesTheLinkOneWay
+      fullName: NavMeshSurfaceLinkTests.DisablingBidirectionalMakesTheLinkOneWay
+      resultStatus: 1
+      duration: 0.001705
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1006
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests][suite]
+    - id: 1011
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceLinkTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests.EndpointsMoveRelativeToLinkNextFrameWhenAutoUpdating]
+      name: EndpointsMoveRelativeToLinkNextFrameWhenAutoUpdating
+      fullName: NavMeshSurfaceLinkTests.EndpointsMoveRelativeToLinkNextFrameWhenAutoUpdating
+      resultStatus: 1
+      duration: 0.0201881
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1006
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests][suite]
+    - id: 1010
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceLinkTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests.EndpointsMoveRelativeToLinkOnUpdate]
+      name: EndpointsMoveRelativeToLinkOnUpdate
+      fullName: NavMeshSurfaceLinkTests.EndpointsMoveRelativeToLinkOnUpdate
+      resultStatus: 1
+      duration: 0.001907
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1006
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests][suite]
+    - id: 1007
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceLinkTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests.NavMeshLinkCanConnectTwoSurfaces]
+      name: NavMeshLinkCanConnectTwoSurfaces
+      fullName: NavMeshSurfaceLinkTests.NavMeshLinkCanConnectTwoSurfaces
+      resultStatus: 1
+      duration: 0.0014913
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1006
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceLinkTests][suite]
+    - id: 1013
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests][suite]
+      name: NavMeshSurfaceModifierTests
+      fullName: NavMeshSurfaceModifierTests
+      resultStatus: 1
+      duration: 0.0184635
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1039
+      parentUniqueId: '[D:/UnityProjects/vampires/Library/ScriptAssemblies/NavMeshComponentsTestsPlaymode.dll][suite]'
+    - id: 1015
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceModifierTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests.ModifierIgnoreAffectsChild]
+      name: ModifierIgnoreAffectsChild
+      fullName: NavMeshSurfaceModifierTests.ModifierIgnoreAffectsChild
+      resultStatus: 1
+      duration: 0.0025544
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests][suite]
+    - id: 1014
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceModifierTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests.ModifierIgnoreAffectsSelf]
+      name: ModifierIgnoreAffectsSelf
+      fullName: NavMeshSurfaceModifierTests.ModifierIgnoreAffectsSelf
+      resultStatus: 1
+      duration: 0.0006796
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests][suite]
+    - id: 1016
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceModifierTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests.ModifierIgnoreDoesNotAffectSibling]
+      name: ModifierIgnoreDoesNotAffectSibling
+      fullName: NavMeshSurfaceModifierTests.ModifierIgnoreDoesNotAffectSibling
+      resultStatus: 1
+      duration: 0.0010541
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests][suite]
+    - id: 1018
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceModifierTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests.ModifierOverrideAreaAffectsChild]
+      name: ModifierOverrideAreaAffectsChild
+      fullName: NavMeshSurfaceModifierTests.ModifierOverrideAreaAffectsChild
+      resultStatus: 1
+      duration: 0.0011897
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests][suite]
+    - id: 1017
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceModifierTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests.ModifierOverrideAreaAffectsSelf]
+      name: ModifierOverrideAreaAffectsSelf
+      fullName: NavMeshSurfaceModifierTests.ModifierOverrideAreaAffectsSelf
+      resultStatus: 1
+      duration: 0.0010381
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests][suite]
+    - id: 1019
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceModifierTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests.ModifierOverrideAreaDoesNotAffectSibling]
+      name: ModifierOverrideAreaDoesNotAffectSibling
+      fullName: NavMeshSurfaceModifierTests.ModifierOverrideAreaDoesNotAffectSibling
+      resultStatus: 1
+      duration: 0.0011336
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierTests][suite]
+    - id: 1020
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierVolumeTests][suite]
+      name: NavMeshSurfaceModifierVolumeTests
+      fullName: NavMeshSurfaceModifierVolumeTests
+      resultStatus: 1
+      duration: 0.0125223
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1039
+      parentUniqueId: '[D:/UnityProjects/vampires/Library/ScriptAssemblies/NavMeshComponentsTestsPlaymode.dll][suite]'
+    - id: 1021
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceModifierVolumeTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierVolumeTests.AreaAffectsNavMeshOverlapping]
+      name: AreaAffectsNavMeshOverlapping
+      fullName: NavMeshSurfaceModifierVolumeTests.AreaAffectsNavMeshOverlapping
+      resultStatus: 1
+      duration: 0.0028232
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1020
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierVolumeTests][suite]
+    - id: 1022
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceModifierVolumeTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierVolumeTests.AreaDoesNotAffectsNavMeshWhenNotOverlapping]
+      name: AreaDoesNotAffectsNavMeshWhenNotOverlapping
+      fullName: NavMeshSurfaceModifierVolumeTests.AreaDoesNotAffectsNavMeshWhenNotOverlapping
+      resultStatus: 1
+      duration: 0.0011566
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1020
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierVolumeTests][suite]
+    - id: 1023
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceModifierVolumeTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierVolumeTests.BuildUsesOnlyIncludedModifierVolume]
+      name: BuildUsesOnlyIncludedModifierVolume
+      fullName: NavMeshSurfaceModifierVolumeTests.BuildUsesOnlyIncludedModifierVolume
+      resultStatus: 1
+      duration: 0.0012184
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1020
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceModifierVolumeTests][suite]
+    - id: 1024
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+      name: NavMeshSurfaceTests
+      fullName: NavMeshSurfaceTests
+      resultStatus: 1
+      duration: 0.0767151
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1039
+      parentUniqueId: '[D:/UnityProjects/vampires/Library/ScriptAssemblies/NavMeshComponentsTestsPlaymode.dll][suite]'
+    - id: 1036
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.ActiveSurfacesContainsOnlyActiveAndEnabledSurface]
+      name: ActiveSurfacesContainsOnlyActiveAndEnabledSurface
+      fullName: NavMeshSurfaceTests.ActiveSurfacesContainsOnlyActiveAndEnabledSurface
+      resultStatus: 1
+      duration: 0.0022344
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1032
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.BuildIgnoresGeometryOutsideBounds]
+      name: BuildIgnoresGeometryOutsideBounds
+      fullName: NavMeshSurfaceTests.BuildIgnoresGeometryOutsideBounds
+      resultStatus: 1
+      duration: 0.0009675
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1033
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.BuildIgnoresGeometrySiblings]
+      name: BuildIgnoresGeometrySiblings
+      fullName: NavMeshSurfaceTests.BuildIgnoresGeometrySiblings
+      resultStatus: 1
+      duration: 0.0012042
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1034
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.BuildUsesOnlyIncludedLayers]
+      name: BuildUsesOnlyIncludedLayers
+      fullName: NavMeshSurfaceTests.BuildUsesOnlyIncludedLayers
+      resultStatus: 1
+      duration: 0.0006153
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1030
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.CanBuildCollidersAndIgnoreRenderMeshes]
+      name: CanBuildCollidersAndIgnoreRenderMeshes
+      fullName: NavMeshSurfaceTests.CanBuildCollidersAndIgnoreRenderMeshes
+      resultStatus: 1
+      duration: 0.001171
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1031
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.CanBuildRenderMeshesAndIgnoreColliders]
+      name: CanBuildRenderMeshesAndIgnoreColliders
+      fullName: NavMeshSurfaceTests.CanBuildRenderMeshesAndIgnoreColliders
+      resultStatus: 1
+      duration: 0.0012007
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1029
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.CanBuildWithCustomAgentTypeID]
+      name: CanBuildWithCustomAgentTypeID
+      fullName: NavMeshSurfaceTests.CanBuildWithCustomAgentTypeID
+      resultStatus: 1
+      duration: 0.0050339
+      messages: 
+      output: "No build settings for agent type ID 1234\r\n"
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1028
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.CanBuildWithCustomArea]
+      name: CanBuildWithCustomArea
+      fullName: NavMeshSurfaceTests.CanBuildWithCustomArea
+      resultStatus: 1
+      duration: 0.0011524
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1035
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.DefaultSettingsMatchBuiltinSettings]
+      name: DefaultSettingsMatchBuiltinSettings
+      fullName: NavMeshSurfaceTests.DefaultSettingsMatchBuiltinSettings
+      resultStatus: 1
+      duration: 0.0015858
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1026
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.NavMeshCanBeRemovedAndAdded]
+      name: NavMeshCanBeRemovedAndAdded
+      fullName: NavMeshSurfaceTests.NavMeshCanBeRemovedAndAdded
+      resultStatus: 1
+      duration: 0.0010528
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1025
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.NavMeshIsAvailableAfterBuild]
+      name: NavMeshIsAvailableAfterBuild
+      fullName: NavMeshSurfaceTests.NavMeshIsAvailableAfterBuild
+      resultStatus: 1
+      duration: 0.0011698
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1027
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.NavMeshIsNotAvailableWhenDisabled]
+      name: NavMeshIsNotAvailableWhenDisabled
+      fullName: NavMeshSurfaceTests.NavMeshIsNotAvailableWhenDisabled
+      resultStatus: 1
+      duration: 0.0011918
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1037
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.NavMeshMovesToSurfacePositionNextFrame]
+      name: NavMeshMovesToSurfacePositionNextFrame
+      fullName: NavMeshSurfaceTests.NavMeshMovesToSurfacePositionNextFrame
+      resultStatus: 1
+      duration: 0.0199186
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
+    - id: 1038
+      uniqueId: NavMeshComponentsTestsPlaymode.dll/NavMeshSurfaceTests/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests.UpdatingAndAddingNavMesh]
+      name: UpdatingAndAddingNavMesh
+      fullName: NavMeshSurfaceTests.UpdatingAndAddingNavMesh
+      resultStatus: 1
+      duration: 0.0204589
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1024
+      parentUniqueId: NavMeshComponentsTestsPlaymode.dll/[NavMeshComponentsTestsPlaymode][NavMeshSurfaceTests][suite]
     - id: 1005
       uniqueId: '[D:/UnityProjects/vampires/Library/ScriptAssemblies/Tests.dll][suite]'
       name: Tests.dll
       fullName: D:/UnityProjects/vampires/Library/ScriptAssemblies/Tests.dll
       resultStatus: 1
-      duration: 0.2003375
+      duration: 0.1609497
       messages: 
       output: 
       stacktrace: 
@@ -344,7 +1002,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.1894013
+      duration: 0.1536277
       messages: 
       output: 
       stacktrace: 
@@ -360,7 +1018,7 @@ MonoBehaviour:
       name: IntegrationTest
       fullName: Tests.IntegrationTest
       resultStatus: 1
-      duration: 0.17961
+      duration: 0.1447943
       messages: 
       output: 
       stacktrace: 
@@ -376,7 +1034,7 @@ MonoBehaviour:
       name: ReduceVampireCount
       fullName: Tests.IntegrationTest.ReduceVampireCount
       resultStatus: 1
-      duration: 0.1601656
+      duration: 0.1370096
       messages: 
       output: "All vampires have been slain.\nYou can now exit the level.\r\n"
       stacktrace: 
@@ -388,7 +1046,11 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1002
       parentUniqueId: Tests.dll/Tests/[Tests][Tests.IntegrationTest][suite]
-    m_ResultText: vampires (0.231s)
+    m_ResultText: 'vampires (0.536s)
+
+      ---
+
+      One or more child tests were ignored'
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
@@ -543,10 +1205,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 263
+    x: 400
     y: 73
-    width: 1815
-    height: 850
+    width: 1608
+    height: 1026
   m_ViewDataDictionary: {fileID: 0}
   m_VSyncEnabled: 0
   m_MaximizeOnPlay: 0
@@ -559,10 +1221,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -907.5
-    m_HBaseRangeMax: 907.5
-    m_VBaseRangeMin: -416.5
-    m_VBaseRangeMax: 416.5
+    m_HBaseRangeMin: -804
+    m_HBaseRangeMax: 804
+    m_VBaseRangeMin: -504.5
+    m_VBaseRangeMax: 504.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -580,25 +1242,25 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
-      width: 1815
-      height: 833
+      width: 1608
+      height: 1009
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 907.5, y: 416.5}
+    m_Translation: {x: 804, y: 504.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -907.5
-      y: -416.5
-      width: 1815
-      height: 833
+      x: -804
+      y: -504.5
+      width: 1608
+      height: 1009
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 1815, y: 850}
+  m_LastWindowPixelSize: {x: 1608, y: 1026}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -626,15 +1288,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 263
-    height: 850
+    width: 400
+    height: 1026
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7afaffff
-      m_LastClickedID: -1414
-      m_ExpandedIDs: 04fbffff
+      m_SelectedIDs: b4f2feff
+      m_LastClickedID: -68940
+      m_ExpandedIDs: f417ffff2418ffffb41dffff48dbffffe8dbffff9aedffff30eeffffc664000032650000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -680,9 +1342,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 942
-    width: 2080
-    height: 429
+    y: 1118
+    width: 2010
+    height: 253
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -697,20 +1359,20 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Enemies
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Scripts/Enemies
+  - Assets/Scripts
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\UnityProjects\vampires
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 60}
-    m_SelectedIDs: 10390000
-    m_LastClickedID: 14608
-    m_ExpandedIDs: 0000000066300000a8300000e4300000e831000050320000e0320000a83300000838000044390000f8390000083a0000343c000000ca9a3b
+    scrollPos: {x: 0, y: 143}
+    m_SelectedIDs: c8430000
+    m_LastClickedID: 17352
+    m_ExpandedIDs: 000000003239000078390000c0390000da3a0000503b0000ee3b0000d03c000098410000f8420000c8430000d8430000b046000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -738,7 +1400,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000066300000a8300000e4300000e831000050320000e0320000a83300000838000044390000f8390000083a0000343c0000
+    m_ExpandedIDs: 000000003239000078390000c0390000da3a0000503b0000ee3b0000d03c000098410000f8420000c8430000d8430000b0460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -765,7 +1427,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 042600005a33000004f6ffff9634000034420000303300005e250000323300009025000094250000c633000070250000cc660000e8500000847a0000701a0000261b00002a1500002e4000007a4200002c680000823600003c65000006bf000004350000ae4b0000283f00002809010000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -815,10 +1477,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 263
+    x: 400
     y: 73
-    width: 1815
-    height: 850
+    width: 1608
+    height: 1026
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
   m_WindowGUID: 392cca4211425fa4882bfa3d85ba5008
@@ -830,9 +1492,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 6.495056, y: 2.7944226, z: -34.073246}
+    m_Target: {x: 168.16785, y: 1.8728797, z: -10.963818}
     speed: 2
-    m_Value: {x: 6.495056, y: 2.7944226, z: -34.073246}
+    m_Value: {x: 168.16785, y: 1.8728797, z: -10.963818}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -861,13 +1523,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.22903411, y: 0.10786851, z: -0.025945436, w: 0.96748924}
+    m_Target: {x: -0.18383014, y: -0.10741397, z: 0.020239849, w: -0.9769267}
     speed: 2
-    m_Value: {x: 0.22894247, y: 0.10782535, z: -0.025935054, w: 0.9671021}
+    m_Value: {x: -0.1838185, y: -0.10740717, z: 0.020238567, w: -0.9768649}
   m_Size:
-    m_Target: 10.404148
+    m_Target: 6.5178556
     speed: 2
-    m_Value: 10.404148
+    m_Value: 6.5178556
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -917,7 +1579,7 @@ MonoBehaviour:
     x: 263
     y: 73
     width: 1815
-    height: 850
+    height: 1026
   m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &20
 MonoBehaviour:
@@ -973,7 +1635,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1414
+  m_LastSelectedObjectID: -68940
 --- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1410,9 +2072,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2080
+    x: 2010
     y: 73
-    width: 478
+    width: 548
     height: 1298
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0

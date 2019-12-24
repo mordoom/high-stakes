@@ -50,6 +50,31 @@ public class WeaponController : MonoBehaviour {
     }
 
     private void HandleWeaponSwitch () {
+        CheckWeaponKeyPress ();
+        CheckMouseWheelScroll ();
+    }
+
+    private void CheckMouseWheelScroll () {
+        int currentWeaponIndex = weaponInventory.IndexOf (state);
+
+        if (Input.GetAxis ("Mouse ScrollWheel") > 0f) {
+            int nextWeaponIndex = currentWeaponIndex + 1 >= weaponInventory.Count ? 0 : currentWeaponIndex + 1;
+            while (!weaponInventory[nextWeaponIndex].collected) {
+                nextWeaponIndex = nextWeaponIndex + 1 >= weaponInventory.Count ? 0 : nextWeaponIndex + 1;
+            }
+
+            SwitchToWeapon (nextWeaponIndex);
+        } else if (Input.GetAxis ("Mouse ScrollWheel") < 0f) {
+            int prevWeaponIndex = currentWeaponIndex - 1 < 0 ? weaponInventory.Count - 1 : currentWeaponIndex - 1;
+            while (!weaponInventory[prevWeaponIndex].collected) {
+                prevWeaponIndex = prevWeaponIndex - 1 < 0 ? weaponInventory.Count - 1 : prevWeaponIndex - 1;
+            }
+
+            SwitchToWeapon (prevWeaponIndex);
+        }
+    }
+
+    private void CheckWeaponKeyPress () {
         for (int i = 0; i < weaponInventory.Count; i++) {
             string weaponKey = (i + 1).ToString ();
             if (Input.GetKeyDown (weaponKey) && weaponInventory[i].collected) {
@@ -86,6 +111,7 @@ public class WeaponController : MonoBehaviour {
         }
         StartCoroutine (Attack ());
     }
+
     IEnumerator Attack () {
         yield return new WaitForSeconds (attackTime);
         FinishAnimation ();

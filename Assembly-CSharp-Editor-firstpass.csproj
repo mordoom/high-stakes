@@ -646,13 +646,13 @@
       <Project>{AA79C55F-2CE3-3D46-6F5A-66C68DD2EE63}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
-    <ProjectReference Include="GameAssembly.csproj">
-      <Project>{5F259DC3-85F5-1E83-D396-29026792F52E}</Project>
-      <Name>GameAssembly</Name>
-    </ProjectReference>
     <ProjectReference Include="NavMeshComponentsExamplesEditor.csproj">
       <Project>{0DD6341B-C26C-552A-0FD2-1B9E8E4347EC}</Project>
       <Name>NavMeshComponentsExamplesEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="GameAssembly.csproj">
+      <Project>{5F259DC3-85F5-1E83-D396-29026792F52E}</Project>
+      <Name>GameAssembly</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
       <Project>{7B373C89-9732-F3C3-52F5-BC537338C765}</Project>
