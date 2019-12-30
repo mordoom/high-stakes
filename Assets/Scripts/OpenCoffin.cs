@@ -6,6 +6,9 @@ public class OpenCoffin : MonoBehaviour {
     public GameObject minion;
 
     public void OnOpen () {
+        if (open) {
+            return;
+        }
         open = true;
         lid.SetActive (false);
 

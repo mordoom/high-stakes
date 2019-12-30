@@ -1,18 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour {
-    private bool attacking;
-    private float bloodTime = 2;
-
     public float attackTime = 1f;
     public LayerMask layerMask;
     public GameObject[] weaponModels;
     public GameObject blood;
-
-    public List<Weapon> weaponInventory = new List<Weapon> () { new Melee (), new Pistol () };
+    public bool makingNoise;
     public Weapon state;
+    public List<Weapon> weaponInventory = new List<Weapon> () { new Melee (), new Pistol () };
+
+    private bool attacking;
+    private float bloodTime = 2;
     private Animator anim;
     private WeaponStatsController stats;
     private HUDController hudController;
@@ -35,14 +36,17 @@ public class WeaponController : MonoBehaviour {
     private void HandleAttack () {
         bool hasAmmo = state.ammo != 0;
         if (!attacking && Input.GetButtonDown ("Fire1") && hasAmmo) {
+            if (stats.name != "melee") {
+                makingNoise = true;
+            }
             state.ammo--;
             BeginAnimation ();
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
             if (Physics.Raycast (ray, out hit, stats.range, layerMask)) {
                 EnemyController enemy = hit.collider.GetComponent<EnemyController> ();
-                if (enemy != null && enemy.CanBeHurt (stats.name)) {
-                    enemy.Hurt (stats.damage);
+                if (!hit.collider.isTrigger && enemy != null && enemy.CanBeHurt (stats.name)) {
+                    enemy.Hurt (stats.damage, stats.name);
                     StartCoroutine (Splatter (hit));
                 }
             }
@@ -113,12 +117,13 @@ public class WeaponController : MonoBehaviour {
     }
 
     IEnumerator Attack () {
-        yield return new WaitForSeconds (attackTime);
+        yield return new WaitForSeconds (stats.fireRate);
         FinishAnimation ();
     }
 
     private void FinishAnimation () {
         attacking = false;
+        makingNoise = false;
         if (anim != null) {
             anim.SetBool ("attacking", false);
         }

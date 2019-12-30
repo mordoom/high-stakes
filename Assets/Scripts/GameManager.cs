@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameManager : MonoBehaviour {
     public int vampiresRemainingCount = 0;
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
     }
 
-    internal void ReduceVampireCount () {
+    public void ReduceVampireCount () {
         vampiresRemainingCount--;
         if (vampiresRemainingCount == 0) {
             foreach (OpenCoffin coffin in FindObjectsOfType<OpenCoffin> ()) {
@@ -33,7 +34,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    internal void Die () {
-        // TODO
+    public void Die () {
+        Time.timeScale = 0;
+        FirstPersonController controller = player.GetComponent<FirstPersonController>();
+        hud.GetComponent<HUDController> ().DisplayMessage("You are dead");
     }
 }

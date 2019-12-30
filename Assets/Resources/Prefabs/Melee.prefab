@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: melee
   range: 3
-  fireRate: 0.25
+  fireRate: 0.85
   splatterDelay: 0.75
   damage: 25
   maxAmmo: 299

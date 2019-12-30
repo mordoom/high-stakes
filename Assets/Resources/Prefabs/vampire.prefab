@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2721229382410466193}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.65133286, y: -0.051088333, z: 1.2460117}
+  m_LocalRotation: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
+  m_LocalPosition: {x: -0.65133286, y: 3.252, z: 0.25699997}
   m_LocalScale: {x: 1.3368, y: 0.57644, z: 1}
   m_Children: []
   m_Father: {fileID: 2721229383061079401}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &2721229382410466205
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 2721229383061079401}
   - component: {fileID: 2721229383061079400}
   - component: {fileID: 2721229383061079447}
+  - component: {fileID: 244945634}
   m_Layer: 0
   m_Name: vampire
   m_TagString: Untagged
@@ -339,7 +340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2721229383061079402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.613933, y: 6.551, z: -9.0695}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.1128}
   m_Children:
   - {fileID: 2721229382410466204}
@@ -361,7 +362,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
-  health: 3
+  stunned: 0
+  health: 300
+  minions: []
+  standUpAngle: 90
+  damageAmount: 25
+  attackDuration: 0.5
+  attackCoolDown: 1
+  projectile: {fileID: 819961577372461048, guid: 40cdd3408391ff340894f92ecdb42630,
+    type: 3}
+  projectileSpeed: 300
 --- !u!65 &2721229383061079447
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -373,8 +383,30 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.26968, z: 1.8224418}
-  m_Center: {x: 0, y: 0.13484001, z: 1.3111643}
+  m_Size: {x: 1, y: 4.0919647, z: 1.061871}
+  m_Center: {x: 0, y: 1.9944186, z: 0.027678238}
+--- !u!195 &244945634
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721229383061079402}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 10
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 4
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &2721229383382608764
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,13 +434,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2721229383382608764}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002067566, y: -0.1863885, z: 1.5910115}
+  m_LocalRotation: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
+  m_LocalPosition: {x: 0.002067566, y: 3.601, z: 0.419}
   m_LocalScale: {x: 0.4086274, y: 0.4086274, z: 0.4086274}
   m_Children: []
   m_Father: {fileID: 2721229383061079401}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &2721229383382608760
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2651,13 +2683,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2721229383758851578}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25393295, y: 0.5339117, z: -1.812}
+  m_LocalRotation: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
+  m_LocalPosition: {x: -0.25393295, y: 0.18300015, z: 0.5899999}
   m_LocalScale: {x: 0.55126, y: 0.32336, z: 0.27001774}
   m_Children: []
   m_Father: {fileID: 2721229383061079401}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &2721229383758851558
 MeshFilter:
   m_ObjectHideFlags: 0

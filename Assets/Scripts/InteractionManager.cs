@@ -5,8 +5,8 @@ public class InteractionManager : MonoBehaviour {
     public LayerMask layerMask;
     private HUDController hud;
 
-    void Start() {
-        hud = FindObjectOfType<HUDController>();
+    void Start () {
+        hud = FindObjectOfType<HUDController> ();
     }
 
     void Update () {

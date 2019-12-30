@@ -2,25 +2,24 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
 namespace Tests {
     public class IntegrationTest {
         [UnityTest]
         public IEnumerator ReduceVampireCount () {
-            GameObject instance = MonoBehaviour.Instantiate (Resources.Load<GameObject> ("Prefabs/vampire"));
-            GameObject gm = MonoBehaviour.Instantiate (Resources.Load<GameObject> ("Prefabs/GameManager"));
+            SceneManager.LoadScene(0);
 
-            GameManager manager = gm.GetComponent<GameManager> ();
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f);
+            GameManager manager = MonoBehaviour.FindObjectOfType<GameManager>();
             Assert.AreEqual (1, manager.vampiresRemainingCount);
 
-            VampireController controller = instance.GetComponent<VampireController> ();
-            Assert.AreEqual (3, controller.health);
-            controller.Hurt (1);
-            Assert.Less (controller.health, 3);
+            VampireController controller = MonoBehaviour.FindObjectOfType<VampireController>();
+            Assert.AreEqual (false, controller.dead);
+            Assert.Less (0, controller.health);
             while (controller.health > 0) {
-                controller.Hurt (1);
+                controller.Hurt (100, "melee");
             }
             Assert.AreEqual (0, controller.health);
             Assert.AreEqual (true, controller.dead);

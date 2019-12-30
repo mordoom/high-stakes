@@ -29,6 +29,7 @@ public class Melee : Weapon {
 [System.Serializable]
 public class Pistol : Weapon {
     public Pistol () : base ("pistol") {
+        ammo = -1;
         collected = true;
     }
 }
