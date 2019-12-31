@@ -9,6 +9,7 @@ public class VampireController : EnemyController {
     public float attackDuration = 0.5f;
     public float attackCoolDown = 1f;
     public GameObject projectile;
+    public GameObject mistEffect;
     public float projectileSpeed = 10f;
 
     private WeaponController player;
@@ -29,7 +30,7 @@ public class VampireController : EnemyController {
     private float knifeThrowCoolDownLength = 3f;
     private float knifeThrowCoolDown;
     private Vector3 regularScale;
-    private float stunDuration = 1f;
+    private float stunDuration = 2f;
     private float lineOfSight = 20;
     private float listenDistance = 10;
     private float mistDuration = 5;
@@ -49,6 +50,7 @@ public class VampireController : EnemyController {
             StartCoroutine (Stunned ());
         } else {
             TakeDamage (1);
+            CheckIfTimeToWakeUp ();
         }
     }
 
@@ -95,9 +97,14 @@ public class VampireController : EnemyController {
                 hud = FindObjectOfType<HUDController> ();
             }
             hud.ShowVampireHealth (health);
-            if (currentState == State.ASLEEP && player.makingNoise) {
-                currentState = State.CHASING;
-            }
+            CheckIfTimeToWakeUp ();
+        }
+    }
+
+    private void CheckIfTimeToWakeUp () {
+        if (currentState == State.ASLEEP && player.makingNoise) {
+            currentState = State.CHASING;
+            WakeUpMinions ();
         }
     }
 
@@ -110,13 +117,19 @@ public class VampireController : EnemyController {
     }
 
     private void ChasePlayer () {
-        agent.destination = player.transform.position;
+        agent.SetDestination (player.transform.position);
         agent.isStopped = false;
+
+        float playerDistance = Vector3.Distance (transform.position, player.transform.position);
+        if (playerDistance <= 2) {
+            agent.isStopped = true;
+        }
 
         if (health <= 100 && !misted) {
             misted = true;
             currentState = State.MIST;
-            StartCoroutine (MistCooldown ());
+            GameObject newMistEffect = Instantiate (mistEffect, transform.position, transform.rotation);
+            StartCoroutine (MistCooldown (newMistEffect));
         }
 
         RaycastHit hit;
@@ -131,15 +144,16 @@ public class VampireController : EnemyController {
             if (playerHealth != null) {
                 Bite (playerHealth);
             }
-        }
+        } else {
+            if (knifeThrowCoolDown <= 0) {
+                if (Physics.Raycast (rayPos, transform.TransformDirection (Vector3.forward), out hit, lineOfSight)) {
+                    ThrowKnife ();
+                }
 
-        if (knifeThrowCoolDown <= 0) {
-            if (Physics.Raycast (rayPos, transform.TransformDirection (Vector3.forward), out hit, lineOfSight)) {
-                ThrowKnife ();
+            } else {
+                knifeThrowCoolDown -= Time.deltaTime;
             }
 
-        } else {
-            knifeThrowCoolDown -= Time.deltaTime;
         }
     }
 
@@ -148,17 +162,19 @@ public class VampireController : EnemyController {
         transform.localScale = new Vector3 (0, 0, 0);
     }
 
-    IEnumerator MistCooldown () {
+    IEnumerator MistCooldown (GameObject newMistEffect) {
         yield return new WaitForSeconds (mistDuration);
         transform.localScale = regularScale;
         currentState = State.CHASING;
-
+        Destroy (newMistEffect);
         AppearBehindPlayer ();
     }
 
     private void AppearBehindPlayer () {
         transform.position = player.transform.position - player.transform.forward * 3;
         transform.LookAt (player.transform.position);
+        stunned = true;
+        StartCoroutine (Stunned ());
     }
 
     private void Bite (HealthController playerHealth) {
@@ -178,12 +194,13 @@ public class VampireController : EnemyController {
     private void ThrowKnife () {
         currentState = State.THROW_KNIFE;
         knifeThrowCoolDown = knifeThrowCoolDownLength;
+        if (!stunned && !dead) {
+            Vector3 newProjectilePos = new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z);
+            GameObject newProjectile = Instantiate (projectile, newProjectilePos, transform.rotation);
+            newProjectile.GetComponent<Rigidbody> ().AddForce (transform.forward * projectileSpeed);
 
-        Vector3 newProjectilePos = new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z);
-        GameObject newProjectile = Instantiate (projectile, newProjectilePos, transform.rotation);
-        newProjectile.GetComponent<Rigidbody> ().AddForce(transform.forward * projectileSpeed);
-
-        StartCoroutine (ThrowKnifeCoolDown ());
+            StartCoroutine (ThrowKnifeCoolDown ());
+        }
     }
 
     IEnumerator ThrowKnifeCoolDown () {
@@ -194,6 +211,10 @@ public class VampireController : EnemyController {
     public override void DeathEffects () {
         GameManager gameManager = FindObjectOfType<GameManager> ();
         gameManager.ReduceVampireCount ();
+        WakeUpMinions ();
+    }
+
+    private void WakeUpMinions () {
         foreach (GameObject minion in minions) {
             OpenCoffin openCoffin = minion.GetComponent<OpenCoffin> ();
             if (openCoffin != null) {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,10 @@ public class HUDController : MonoBehaviour {
     public Text ammoCountText;
     public Text healthText;
     public Text vampireHealthText;
+    public Text log;
+    public float logTextDisplayLength = 3;
     public GameObject vampireHealthDisplay;
+
     private GameManager gameManager;
     private WeaponController weaponController;
     private HealthController healthController;
@@ -17,6 +21,7 @@ public class HUDController : MonoBehaviour {
         weaponController = FindObjectOfType<WeaponController> ();
         healthController = FindObjectOfType<HealthController> ();
         vampireHealthDisplay.SetActive (false);
+        log.text = "";
     }
 
     void Update () {
@@ -25,8 +30,27 @@ public class HUDController : MonoBehaviour {
         healthText.text = healthController.health.ToString ();
     }
 
-    public void DisplayMessage (string message) {
-        Debug.Log (message);
+    public void Log (string message) {
+        string newText = message.ToUpper();
+        if (string.IsNullOrEmpty(log.text)) {
+            log.text = newText;
+        }
+        else {
+            log.text = newText + "\n" + log.text;
+        }
+        StartCoroutine(ClearText());
+    }
+
+    IEnumerator ClearText() {
+        yield return new WaitForSeconds(logTextDisplayLength);
+
+        string[] logMessages = log.text.Split('\n');
+        string newLog = "";
+        if (logMessages.Length > 1) {
+            Array.Resize(ref logMessages, logMessages.Length - 1);
+            newLog = string.Join("\n", logMessages);
+        }
+        log.text = newLog;
     }
 
     public void ShowVampireHealth (int health) {

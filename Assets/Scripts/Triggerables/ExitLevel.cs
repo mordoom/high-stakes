@@ -23,7 +23,7 @@ public class ExitLevel : Triggerable {
         if (open) {
             gameManager.NextLevel();
         } else {
-            FindObjectOfType<HUDController> ().DisplayMessage ("Door is locked");
+            FindObjectOfType<HUDController> ().Log ("Door is locked");
         }
     }
 }

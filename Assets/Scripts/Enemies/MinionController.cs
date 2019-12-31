@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,13 +7,16 @@ public class MinionController : EnemyController {
     public int damageAmount = 8;
     public float attackDuration = 0.5f;
     public float attackCoolDown = 1f;
+    public float maxChaseDist = 20;
+    public bool knowsPlayerPosition;
 
     private GameObject player;
     private NavMeshAgent agent;
     private Animator anim;
     private float interactRange = 3;
     private bool isAttacking = false;
-    private float stunDuration = 1f;
+    private float stunDuration = 0.5f;
+    private float sightDistance = 30;
 
     void Start () {
         agent = GetComponent<NavMeshAgent> ();
@@ -22,10 +24,11 @@ public class MinionController : EnemyController {
     }
 
     public override void Hurt (int damage, string weaponName) {
-        if (weaponName == "melee") {
-            stunned = true;
-            StartCoroutine (Stunned ());
-        }
+        stunned = true;
+        agent.isStopped = true;
+        knowsPlayerPosition = true;
+        float duration = weaponName == "melee" ? stunDuration * 2 : stunDuration;
+        StartCoroutine (Stunned (duration));
         TakeDamage (damage);
     }
 
@@ -34,13 +37,25 @@ public class MinionController : EnemyController {
             player = FindObjectOfType<WeaponController> ().gameObject;
         }
 
-        if (awake && !dead) {
+        if (awake && !dead && !stunned) {
+            agent.SetDestination (player.transform.position);
+            agent.isStopped = !knowsPlayerPosition;
+
+            float playerDistance = Vector3.Distance (transform.position, player.transform.position);
+            if (!knowsPlayerPosition) {
+                knowsPlayerPosition = SearchForPlayer (playerDistance);
+            }
+
+            if (playerDistance <= 2) {
+                agent.isStopped = true;
+            }
+
             if (agent.isStopped) {
                 anim.SetBool ("walking", false);
             } else {
                 anim.SetBool ("walking", true);
             }
-            agent.destination = player.transform.position;
+
             RaycastHit hit;
             Vector3 rayPos = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
             if (Physics.Raycast (rayPos, transform.TransformDirection (Vector3.forward), out hit, interactRange)) {
@@ -56,13 +71,30 @@ public class MinionController : EnemyController {
                 }
             }
 
-            // TODO stop moving if within certain distance of player
             // TODO stop chasing player if too far away?  
         }
     }
 
-    IEnumerator Stunned () {
-        yield return new WaitForSeconds (stunDuration);
+    private bool SearchForPlayer (float playerDistance) {
+        if (playerDistance <= maxChaseDist) {
+            if (player.GetComponent<WeaponController> ().makingNoise) {
+                return true;
+            }
+            Vector3 targetDir = player.transform.position - transform.position;
+            float angleToPlayer = Vector3.Angle (targetDir, transform.forward);
+            if (angleToPlayer <= 85) {
+                Vector3 rayPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+                RaycastHit hit;
+                if (Physics.Linecast (transform.position, player.transform.position, out hit) && hit.collider.GetComponent<HealthController> () != null) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    IEnumerator Stunned (float duration) {
+        yield return new WaitForSeconds (duration);
         stunned = false;
     }
 
@@ -73,20 +105,17 @@ public class MinionController : EnemyController {
             yield return new WaitForSeconds (attackCoolDown);
         }
         isAttacking = false;
-        // TODO projectiles
-        // if (!dead) {
-        //     Vector3 newProjectilePos = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
-        //     GameObject newProjectile = Instantiate (projectile, newProjectilePos, transform.rotation);
-        //     newProjectile.GetComponent<Rigidbody> ().velocity = (player.transform.position - transform.position).normalized * projectileSpeed;
-        // }
     }
 
     internal void WakeUp () {
         awake = true;
+        knowsPlayerPosition = true;
     }
 
     public override void DeathEffects () {
         agent.isStopped = true;
+        anim.SetBool ("dead", true);
         anim.SetBool ("walking", false);
+        agent.updateRotation = false;
     }
 }

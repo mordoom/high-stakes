@@ -20,8 +20,8 @@ public abstract class Weapon {
 [System.Serializable]
 public class Melee : Weapon {
     public Melee () : base ("melee") {
-        ammo = -1;
-        maxAmmo = 1;
+        ammo = 1;
+        maxAmmo = 99;
         collected = true;
     }
 }
@@ -29,6 +29,14 @@ public class Melee : Weapon {
 [System.Serializable]
 public class Pistol : Weapon {
     public Pistol () : base ("pistol") {
+        ammo = -1;
+        collected = true;
+    }
+}
+
+[System.Serializable]
+public class Shotgun : Weapon {
+    public Shotgun () : base ("shotgun") {
         ammo = -1;
         collected = true;
     }

@@ -18,6 +18,7 @@ public abstract class EnemyController : MonoBehaviour {
         health -= damage;
 
         if (health <= 0) {
+            health = 0;
             Die ();
         }
     }
@@ -28,6 +29,7 @@ public abstract class EnemyController : MonoBehaviour {
 
     public void Die () {
         dead = true;
+        Destroy(GetComponent<Collider>(), 2);
         DeathEffects ();
     }
 

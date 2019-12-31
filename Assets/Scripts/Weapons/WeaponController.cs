@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WeaponController : MonoBehaviour {
     public float attackTime = 1f;
@@ -10,7 +11,12 @@ public class WeaponController : MonoBehaviour {
     public GameObject blood;
     public bool makingNoise;
     public Weapon state;
-    public List<Weapon> weaponInventory = new List<Weapon> () { new Melee (), new Pistol () };
+    public List<Weapon> weaponInventory = new List<Weapon> () { new Melee (), new Pistol (), new Shotgun () };
+
+    public GameObject bulletHole;
+    List<GameObject> bulletHoles = new List<GameObject> ();
+    public int bulletHoleMax = 25;
+    private int currentBulletHoleIndex = 0;
 
     private bool attacking;
     private float bloodTime = 2;
@@ -26,6 +32,9 @@ public class WeaponController : MonoBehaviour {
     void Start () {
         SwitchToWeapon (0);
         hudController = FindObjectOfType<HUDController> ();
+        for (int i = 0; i < bulletHoleMax; i++) {
+            bulletHoles.Add (Instantiate (bulletHole));
+        }
     }
 
     void Update () {
@@ -38,16 +47,37 @@ public class WeaponController : MonoBehaviour {
         if (!attacking && Input.GetButtonDown ("Fire1") && hasAmmo) {
             if (stats.name != "melee") {
                 makingNoise = true;
+                state.ammo--;
             }
-            state.ammo--;
             BeginAnimation ();
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-            if (Physics.Raycast (ray, out hit, stats.range, layerMask)) {
-                EnemyController enemy = hit.collider.GetComponent<EnemyController> ();
-                if (!hit.collider.isTrigger && enemy != null && enemy.CanBeHurt (stats.name)) {
-                    enemy.Hurt (stats.damage, stats.name);
-                    StartCoroutine (Splatter (hit));
+
+            for (int i = 0; i < stats.pellets; i++) {
+                float maxDeviation = stats.spreadDeviation * i;
+                float xDeviation = Random.Range (-maxDeviation, maxDeviation);
+                float yDeviation = Random.Range (-maxDeviation, maxDeviation);
+
+                Vector3 bulletPos = new Vector3 (Input.mousePosition.x + xDeviation, Input.mousePosition.y + yDeviation, Input.mousePosition.z);
+                Ray ray = Camera.main.ScreenPointToRay (bulletPos);
+                RaycastHit hit;
+                if (Physics.Raycast (ray, out hit, stats.range, layerMask)) {
+                    EnemyController enemy = hit.collider.GetComponent<EnemyController> ();
+                    if (enemy != null) {
+                        if (!hit.collider.isTrigger && enemy != null && enemy.CanBeHurt (stats.name)) {
+                            if (stats.name == "melee") {
+                                state.ammo--;
+                            }
+                            enemy.Hurt (stats.damage, stats.name);
+                            Rigidbody rb = hit.collider.GetComponent<Rigidbody> ();
+                            if (rb != null) {
+                                Vector3 force = transform.forward * stats.bulletForce;
+                                rb.AddForce (force);
+                            }
+
+                            StartCoroutine (Splatter (hit));
+                        }
+                    } else {
+                        DrawBulletHole (hit);
+                    }
                 }
             }
         }
@@ -78,6 +108,17 @@ public class WeaponController : MonoBehaviour {
         }
     }
 
+    private void DrawBulletHole (RaycastHit hit) {
+        GameObject currentHole = bulletHoles[currentBulletHoleIndex];
+        currentHole.transform.position = hit.point;
+        currentHole.transform.rotation = Quaternion.FromToRotation (Vector3.up, hit.normal);
+        currentHole.transform.parent = hit.transform;
+        currentBulletHoleIndex++;
+        if (currentBulletHoleIndex >= bulletHoleMax) {
+            currentBulletHoleIndex = 0;
+        }
+    }
+
     private void CheckWeaponKeyPress () {
         for (int i = 0; i < weaponInventory.Count; i++) {
             string weaponKey = (i + 1).ToString ();
@@ -104,8 +145,10 @@ public class WeaponController : MonoBehaviour {
     }
 
     private void CreateBloodSplatter (RaycastHit hit) {
-        GameObject bloodSplat = Instantiate (blood, hit.point, hit.collider.gameObject.transform.rotation);
-        Destroy (bloodSplat, bloodTime);
+        if (hit.collider != null) {
+            GameObject bloodSplat = Instantiate (blood, hit.point, hit.collider.gameObject.transform.rotation);
+            Destroy (bloodSplat, bloodTime);
+        }
     }
 
     private void BeginAnimation () {
@@ -150,14 +193,14 @@ public class WeaponController : MonoBehaviour {
                 if (!weapon.collected) {
                     weapon.collected = true;
                     SwitchToWeapon (weaponInventory.IndexOf (weapon));
-                    hudController.DisplayMessage ("picked up " + item.name);
+                    hudController.Log ("picked up " + item.name);
                     item.SetActive (false);
                 } else if (weapon.ammo < weapon.maxAmmo) {
-                    hudController.DisplayMessage ("picked up " + item.name);
+                    hudController.Log ("picked up " + item.name);
                     weapon.AddAmmo (20);
                     item.SetActive (false);
                 } else {
-                    hudController.DisplayMessage (weapon.name + " ammo is full");
+                    hudController.Log (weapon.name + " ammo is full");
                 }
             }
         }
@@ -167,11 +210,11 @@ public class WeaponController : MonoBehaviour {
         foreach (Weapon weapon in weaponInventory) {
             if (item.name.Contains (weapon.name)) {
                 if (weapon.ammo < weapon.maxAmmo) {
-                    hudController.DisplayMessage ("picked up " + item.name + " x" + amount);
+                    hudController.Log ("picked up " + item.name + " x" + amount);
                     weapon.AddAmmo (amount);
                     item.SetActive (false);
                 } else {
-                    hudController.DisplayMessage (weapon.name + " ammo is full");
+                    hudController.Log (weapon.name + " ammo is full");
                 }
             }
         }

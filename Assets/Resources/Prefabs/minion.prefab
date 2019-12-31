@@ -252,9 +252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
+  stunned: 0
   health: 100
   awake: 0
   damageAmount: 8
+  attackDuration: 0.5
+  attackCoolDown: 1
 --- !u!195 &1280161023935829500
 NavMeshAgent:
   m_ObjectHideFlags: 0

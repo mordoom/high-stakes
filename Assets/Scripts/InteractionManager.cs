@@ -18,7 +18,7 @@ public class InteractionManager : MonoBehaviour {
                 if (Input.GetKeyDown (KeyCode.E)) {
                     triggerable.Interact ();
                 } else {
-                    hud.DisplayMessage (triggerable.GetInteractionMessage ());
+                    // hud.Log (triggerable.GetInteractionMessage ());
                 }
             }
         }

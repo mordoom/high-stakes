@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
 
@@ -30,13 +29,15 @@ public class GameManager : MonoBehaviour {
             foreach (OpenCoffin coffin in FindObjectsOfType<OpenCoffin> ()) {
                 coffin.OnOpen ();
             }
-            hud.GetComponent<HUDController> ().DisplayMessage ("All vampires have been slain.\nYou can now exit the level.");
+            HUDController hudController = FindObjectOfType<HUDController>();
+            hudController.Log ("All vampires have been slain.");
+            hudController.Log ("You can now exit the level.");
         }
     }
 
     public void Die () {
         Time.timeScale = 0;
         FirstPersonController controller = player.GetComponent<FirstPersonController>();
-        hud.GetComponent<HUDController> ().DisplayMessage("You are dead");
+        FindObjectOfType<HUDController> ().Log("You are dead");
     }
 }

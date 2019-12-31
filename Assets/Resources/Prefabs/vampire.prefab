@@ -371,6 +371,8 @@ MonoBehaviour:
   attackCoolDown: 1
   projectile: {fileID: 819961577372461048, guid: 40cdd3408391ff340894f92ecdb42630,
     type: 3}
+  mistEffect: {fileID: 8353515240476721940, guid: 1524732d65e83e347b6036e908e7ac8b,
+    type: 3}
   projectileSpeed: 300
 --- !u!65 &2721229383061079447
 BoxCollider:
@@ -395,10 +397,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 10
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 200
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

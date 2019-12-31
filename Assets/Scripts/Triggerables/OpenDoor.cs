@@ -48,7 +48,7 @@ public class OpenDoor : Triggerable {
 
     private void AttemptOpen () {
         if (locked) {
-            hud.DisplayMessage ("door is locked");
+            hud.Log ("door is locked");
             return;
         }
 
@@ -56,10 +56,10 @@ public class OpenDoor : Triggerable {
         if (doorRequiresKey) {
             List<string> items = FindObjectOfType<ItemManager> ().items;
             if (!items.Contains (keyRequired)) {
-                hud.DisplayMessage ("door requires " + keyRequired);
+                hud.Log ("door requires " + keyRequired);
                 return;
             }
-            hud.DisplayMessage ("door opened with " + keyRequired);
+            hud.Log ("door opened with " + keyRequired);
         }
 
         SwitchState ();
