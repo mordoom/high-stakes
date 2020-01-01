@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5273875084280197760}
   - component: {fileID: 5273875084280197763}
+  - component: {fileID: 936963603770621199}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,3 +47,18 @@ MonoBehaviour:
   vampiresRemainingCount: 0
   hud: {fileID: 8033897444845305256, guid: 1eeeacf4327668942bb2da561e76f266, type: 3}
   player: {fileID: 8547458197728872726, guid: 21c2b879586af914f9b3332982476444, type: 3}
+--- !u!114 &936963603770621199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5273875084280197762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677330979f8b55a43b00e2ff0a774562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blood: {fileID: 2572637438989904421, guid: 5bbc04efee927a24b8177b987e133c3f, type: 3}
+  bloodTime: 2
+  bloodSplatterMax: 250

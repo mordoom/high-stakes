@@ -136,6 +136,26 @@ PrefabInstance:
       propertyPath: maxAmmo
       value: 99
       objectReference: {fileID: 0}
+    - target: {fileID: 1855153099806143165, guid: bfeaf3044d1152d44811e25fc31715ed,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1855153099806143154, guid: bfeaf3044d1152d44811e25fc31715ed,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7265497956611530307, guid: bfeaf3044d1152d44811e25fc31715ed,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7265497956611530310, guid: bfeaf3044d1152d44811e25fc31715ed,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfeaf3044d1152d44811e25fc31715ed, type: 3}
 --- !u!1 &3460870441545848097 stripped
@@ -165,7 +185,7 @@ PrefabInstance:
     - target: {fileID: 8548045618620306465, guid: dd8fe2291c21eab45a4f4fdf3d89e121,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.102
+      value: 0.21640371
       objectReference: {fileID: 0}
     - target: {fileID: 8548045618620306465, guid: dd8fe2291c21eab45a4f4fdf3d89e121,
         type: 3}
@@ -221,6 +241,16 @@ PrefabInstance:
         type: 3}
       propertyPath: range
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574343095770611843, guid: dd8fe2291c21eab45a4f4fdf3d89e121,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785392821941275988, guid: dd8fe2291c21eab45a4f4fdf3d89e121,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd8fe2291c21eab45a4f4fdf3d89e121, type: 3}
@@ -308,6 +338,11 @@ PrefabInstance:
       propertyPath: bulletForce
       value: 350
       objectReference: {fileID: 0}
+    - target: {fileID: 3574343095770611843, guid: 50a4b25ee5b553f42954e7ffe1b14f05,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6983941864281340520, guid: 50a4b25ee5b553f42954e7ffe1b14f05,
         type: 3}
       propertyPath: m_SelectedFaces.Array.size
@@ -387,6 +422,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SelectedVertices.Array.data[7]
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785392821941275988, guid: 50a4b25ee5b553f42954e7ffe1b14f05,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50a4b25ee5b553f42954e7ffe1b14f05, type: 3}

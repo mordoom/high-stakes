@@ -8,7 +8,6 @@ public class WeaponController : MonoBehaviour {
     public float attackTime = 1f;
     public LayerMask layerMask;
     public GameObject[] weaponModels;
-    public GameObject blood;
     public bool makingNoise;
     public Weapon state;
     public List<Weapon> weaponInventory = new List<Weapon> () { new Melee (), new Pistol (), new Shotgun () };
@@ -19,10 +18,10 @@ public class WeaponController : MonoBehaviour {
     private int currentBulletHoleIndex = 0;
 
     private bool attacking;
-    private float bloodTime = 2;
     private Animator anim;
     private WeaponStatsController stats;
     private HUDController hudController;
+    private BloodManager bloodManager;
 
     private void Awake () {
         GameEvents.SaveInitiated += Save;
@@ -32,6 +31,7 @@ public class WeaponController : MonoBehaviour {
     void Start () {
         SwitchToWeapon (0);
         hudController = FindObjectOfType<HUDController> ();
+        bloodManager = FindObjectOfType<BloodManager> ();
         for (int i = 0; i < bulletHoleMax; i++) {
             bulletHoles.Add (Instantiate (bulletHole));
         }
@@ -44,7 +44,10 @@ public class WeaponController : MonoBehaviour {
 
     private void HandleAttack () {
         bool hasAmmo = state.ammo != 0;
-        if (!attacking && Input.GetButtonDown ("Fire1") && hasAmmo) {
+        bool autoWeaponShoot = Input.GetMouseButton (0) && stats.auto;
+        bool nonAutoWeaponShoot = Input.GetButtonDown ("Fire1") && !stats.auto;
+        bool shooting = autoWeaponShoot || nonAutoWeaponShoot;
+        if (!attacking && shooting && hasAmmo) {
             if (stats.name != "melee") {
                 makingNoise = true;
                 state.ammo--;
@@ -73,7 +76,7 @@ public class WeaponController : MonoBehaviour {
                                 rb.AddForce (force);
                             }
 
-                            StartCoroutine (Splatter (hit));
+                            bloodManager.Splatter(hit, stats.splatterDelay);
                         }
                     } else {
                         DrawBulletHole (hit);
@@ -137,18 +140,6 @@ public class WeaponController : MonoBehaviour {
         GameObject model = weaponModels[index];
         anim = model.GetComponent<Animator> ();
         stats = model.GetComponent<WeaponStatsController> ();
-    }
-
-    IEnumerator Splatter (RaycastHit hit) {
-        yield return new WaitForSeconds (stats.splatterDelay);
-        CreateBloodSplatter (hit);
-    }
-
-    private void CreateBloodSplatter (RaycastHit hit) {
-        if (hit.collider != null) {
-            GameObject bloodSplat = Instantiate (blood, hit.point, hit.collider.gameObject.transform.rotation);
-            Destroy (bloodSplat, bloodTime);
-        }
     }
 
     private void BeginAnimation () {

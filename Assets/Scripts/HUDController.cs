@@ -11,10 +11,12 @@ public class HUDController : MonoBehaviour {
     public Text log;
     public float logTextDisplayLength = 3;
     public GameObject vampireHealthDisplay;
+    public GameObject playerHurt;
 
     private GameManager gameManager;
     private WeaponController weaponController;
     private HealthController healthController;
+    private float playerHurtLength = 0.25f;
 
     void Start () {
         gameManager = FindObjectOfType<GameManager> ();
@@ -22,6 +24,7 @@ public class HUDController : MonoBehaviour {
         healthController = FindObjectOfType<HealthController> ();
         vampireHealthDisplay.SetActive (false);
         log.text = "";
+        playerHurt.SetActive (false);
     }
 
     void Update () {
@@ -31,26 +34,35 @@ public class HUDController : MonoBehaviour {
     }
 
     public void Log (string message) {
-        string newText = message.ToUpper();
-        if (string.IsNullOrEmpty(log.text)) {
+        string newText = message.ToUpper ();
+        if (string.IsNullOrEmpty (log.text)) {
             log.text = newText;
-        }
-        else {
+        } else {
             log.text = newText + "\n" + log.text;
         }
-        StartCoroutine(ClearText());
+        StartCoroutine (ClearText ());
     }
 
-    IEnumerator ClearText() {
-        yield return new WaitForSeconds(logTextDisplayLength);
+    IEnumerator ClearText () {
+        yield return new WaitForSeconds (logTextDisplayLength);
 
-        string[] logMessages = log.text.Split('\n');
+        string[] logMessages = log.text.Split ('\n');
         string newLog = "";
         if (logMessages.Length > 1) {
-            Array.Resize(ref logMessages, logMessages.Length - 1);
-            newLog = string.Join("\n", logMessages);
+            Array.Resize (ref logMessages, logMessages.Length - 1);
+            newLog = string.Join ("\n", logMessages);
         }
         log.text = newLog;
+    }
+
+    public void ShowPlayerHurt () {
+        playerHurt.SetActive (true);
+        StartCoroutine (ClearPlayerHurt ());
+    }
+
+    IEnumerator ClearPlayerHurt () {
+        yield return new WaitForSeconds (playerHurtLength);
+        playerHurt.SetActive (false);
     }
 
     public void ShowVampireHealth (int health) {

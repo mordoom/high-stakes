@@ -18,10 +18,12 @@ public class OpenDoor : Triggerable {
     private void Start () {
         startPos = transform.position;
         targetPos = new Vector3 (transform.position.x, transform.position.y + 5, transform.position.z);
-        hud = FindObjectOfType<HUDController> ();
     }
 
     void Update () {
+        if (hud == null) {
+            hud = FindObjectOfType<HUDController> ();
+        }
         // Door moves upward - TODO add this feature?
         // if (open) {
         //     transform.position = Vector3.Lerp (transform.position, targetPos, Time.deltaTime * speed);
@@ -62,6 +64,7 @@ public class OpenDoor : Triggerable {
             hud.Log ("door opened with " + keyRequired);
         }
 
+        Debug.Log("opening door");
         SwitchState ();
     }
 

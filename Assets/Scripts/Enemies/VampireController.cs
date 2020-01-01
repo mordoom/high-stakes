@@ -49,7 +49,7 @@ public class VampireController : EnemyController {
             stunned = true;
             StartCoroutine (Stunned ());
         } else {
-            TakeDamage (1);
+            TakeDamage (damage / 10);
             CheckIfTimeToWakeUp ();
         }
     }

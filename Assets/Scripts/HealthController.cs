@@ -73,6 +73,8 @@ public class HealthController : MonoBehaviour {
         }
 
         health -= finalAmount;
+        hudController.ShowPlayerHurt();
+
         if (health <= 0) {
             health = 0;
             Die ();
