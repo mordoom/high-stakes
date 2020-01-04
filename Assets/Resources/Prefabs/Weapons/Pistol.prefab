@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8548045618620306465}
   - component: {fileID: 8174724738188246031}
   - component: {fileID: 5886354201221100303}
+  - component: {fileID: 2766735447761854370}
   m_Layer: 8
   m_Name: Pistol
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705899607659945177}
-  m_LocalRotation: {x: -0, y: -0.16835968, z: -0, w: 0.9857257}
+  m_LocalRotation: {x: 0, y: -0.16836025, z: 0, w: 0.9857256}
   m_LocalPosition: {x: 0.101, y: 0.55, z: 0.523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -54,10 +55,12 @@ MonoBehaviour:
   auto: 0
   projectile: 0
   effectiveRange: 9999
-  bulletForce: 3
+  bulletForce: 350
   pellets: 1
   spreadDeviation: 0
   shootSound: {fileID: 0}
+  initalAmmo: -1
+  startCollected: 1
 --- !u!95 &5886354201221100303
 Animator:
   serializedVersion: 3
@@ -77,6 +80,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2766735447761854370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705899607659945177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b547c0f62ab0c428a0c59b44bd09a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &8462071066168700791
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +627,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_IsSelectable: 1
-  m_SelectedFaces: 05000000
+  m_SelectedFaces: 0500000001000000
   m_SelectedEdges:
   - a: 21
     b: 22
@@ -619,7 +637,15 @@ MonoBehaviour:
     b: 20
   - a: 20
     b: 21
-  m_SelectedVertices: 17000000150000001600000014000000
+  - a: 4
+    b: 5
+  - a: 6
+    b: 4
+  - a: 5
+    b: 7
+  - a: 7
+    b: 6
+  m_SelectedVertices: 1700000015000000160000001400000004000000050000000600000007000000
 --- !u!64 &3574343095770611843
 MeshCollider:
   m_ObjectHideFlags: 0

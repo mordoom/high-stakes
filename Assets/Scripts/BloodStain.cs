@@ -4,11 +4,12 @@ using UnityEngine;
 public class BloodStain : MonoBehaviour {
     private ParticleSystem part;
     public List<ParticleCollisionEvent> collisionEvents;
-    public GameObject bloodStain;
+    private BloodManager bloodManager;
 
     void Start() {
         part = GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
+        bloodManager = FindObjectOfType<BloodManager>();
     }
 
     void OnParticleCollision(GameObject other) {
@@ -17,11 +18,8 @@ public class BloodStain : MonoBehaviour {
         EnemyController enemy = other.GetComponent<EnemyController>();
         for (int i = 0; i < numCollisionEvents; i++) {
             if (enemy == null) {
-                Vector3 hitPoint = collisionEvents[i].intersection;
-                GameObject stain = Instantiate(bloodStain);
-                stain.transform.position = hitPoint;
-                stain.transform.rotation = Quaternion.FromToRotation(Vector3.up, collisionEvents[i].normal);
-                stain.transform.parent = collisionEvents[i].colliderComponent.transform;
+                ParticleCollisionEvent collision = collisionEvents[i];
+                bloodManager.CreateBloodStain(collision);
             }
         }
     }

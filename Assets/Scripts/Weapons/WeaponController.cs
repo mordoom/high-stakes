@@ -2,38 +2,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class WeaponController : MonoBehaviour {
     public float attackTime = 1f;
     public LayerMask layerMask;
     public GameObject[] weaponModels;
     public bool makingNoise;
-    public Weapon state;
-    public List<Weapon> weaponInventory = new List<Weapon> () { new Melee (), new Pistol (), new Shotgun () };
+    public WeaponState state;
+    public List<WeaponState> weaponInventory;
 
     public GameObject bulletHole;
-    List<GameObject> bulletHoles = new List<GameObject> ();
     public int bulletHoleMax = 25;
+
+    private List<GameObject> bulletHoles = new List<GameObject> ();
     private int currentBulletHoleIndex = 0;
 
     private bool attacking;
     private Animator anim;
     private WeaponStatsController stats;
+    private WeaponBehaviour behaviour;
     private HUDController hudController;
-    private BloodManager bloodManager;
 
     private void Awake () {
+        InitWeaponInventory ();
+        SwitchToWeapon (0);
         GameEvents.SaveInitiated += Save;
         GameEvents.LoadInitiated += Load;
     }
 
     void Start () {
-        SwitchToWeapon (0);
         hudController = FindObjectOfType<HUDController> ();
-        bloodManager = FindObjectOfType<BloodManager> ();
         for (int i = 0; i < bulletHoleMax; i++) {
             bulletHoles.Add (Instantiate (bulletHole));
+        }
+    }
+
+    private void InitWeaponInventory () {
+        weaponInventory = new List<WeaponState> ();
+        foreach (GameObject weaponModel in weaponModels) {
+            WeaponStatsController weaponStats = weaponModel.GetComponent<WeaponStatsController> ();
+            weaponInventory.Add (new WeaponState (weaponStats.name, weaponStats.initalAmmo, weaponStats.maxAmmo, weaponStats.startCollected));
         }
     }
 
@@ -44,10 +52,7 @@ public class WeaponController : MonoBehaviour {
 
     private void HandleAttack () {
         bool hasAmmo = state.ammo != 0;
-        bool autoWeaponShoot = Input.GetMouseButton (0) && stats.auto;
-        bool nonAutoWeaponShoot = Input.GetButtonDown ("Fire1") && !stats.auto;
-        bool shooting = autoWeaponShoot || nonAutoWeaponShoot;
-        if (!attacking && shooting && hasAmmo) {
+        if (!attacking && behaviour.isShooting () && hasAmmo) {
             if (stats.name != "melee") {
                 makingNoise = true;
                 state.ammo--;
@@ -55,40 +60,38 @@ public class WeaponController : MonoBehaviour {
             BeginAnimation ();
 
             for (int i = 0; i < stats.pellets; i++) {
-                float maxDeviation = stats.spreadDeviation * i;
-                float xDeviation = Random.Range (-maxDeviation, maxDeviation);
-                float yDeviation = Random.Range (-maxDeviation, maxDeviation);
-
-                Vector3 bulletPos = new Vector3 (Input.mousePosition.x + xDeviation, Input.mousePosition.y + yDeviation, Input.mousePosition.z);
-                Ray ray = Camera.main.ScreenPointToRay (bulletPos);
                 RaycastHit hit;
-                if (Physics.Raycast (ray, out hit, stats.range, layerMask)) {
-                    EnemyController enemy = hit.collider.GetComponent<EnemyController> ();
-                    if (enemy != null) {
-                        if (!hit.collider.isTrigger && enemy != null && enemy.CanBeHurt (stats.name)) {
-                            if (stats.name == "melee") {
-                                state.ammo--;
-                            }
-                            enemy.Hurt (stats.damage, stats.name);
-                            Rigidbody rb = hit.collider.GetComponent<Rigidbody> ();
-                            if (rb != null) {
-                                Vector3 force = transform.forward * stats.bulletForce;
-                                rb.AddForce (force);
-                            }
-
-                            bloodManager.Splatter(hit, stats.splatterDelay);
-                        }
-                    } else {
-                        DrawBulletHole (hit);
-                    }
+                if (behaviour.isShotAHit (i, out hit)) {
+                    DetectBulletHit (hit);
                 }
             }
+        }
+    }
+
+    private void DetectBulletHit (RaycastHit hit) {
+        EnemyController enemy = hit.collider.GetComponent<EnemyController> ();
+        if (enemy != null) {
+            if (stats.name == "melee") {
+                state.ammo--;
+            }
+            behaviour.DamageEnemy (enemy, hit);
+        } else {
+            DrawBulletHole (hit);
         }
     }
 
     private void HandleWeaponSwitch () {
         CheckWeaponKeyPress ();
         CheckMouseWheelScroll ();
+    }
+
+    private void CheckWeaponKeyPress () {
+        for (int i = 0; i < weaponInventory.Count; i++) {
+            string weaponKey = (i + 1).ToString ();
+            if (Input.GetKeyDown (weaponKey) && weaponInventory[i].collected) {
+                SwitchToWeapon (i);
+            }
+        }
     }
 
     private void CheckMouseWheelScroll () {
@@ -111,26 +114,6 @@ public class WeaponController : MonoBehaviour {
         }
     }
 
-    private void DrawBulletHole (RaycastHit hit) {
-        GameObject currentHole = bulletHoles[currentBulletHoleIndex];
-        currentHole.transform.position = hit.point;
-        currentHole.transform.rotation = Quaternion.FromToRotation (Vector3.up, hit.normal);
-        currentHole.transform.parent = hit.transform;
-        currentBulletHoleIndex++;
-        if (currentBulletHoleIndex >= bulletHoleMax) {
-            currentBulletHoleIndex = 0;
-        }
-    }
-
-    private void CheckWeaponKeyPress () {
-        for (int i = 0; i < weaponInventory.Count; i++) {
-            string weaponKey = (i + 1).ToString ();
-            if (Input.GetKeyDown (weaponKey) && weaponInventory[i].collected) {
-                SwitchToWeapon (i);
-            }
-        }
-    }
-
     private void SwitchToWeapon (int index) {
         foreach (GameObject weapon in weaponModels) {
             weapon.SetActive (false);
@@ -140,6 +123,18 @@ public class WeaponController : MonoBehaviour {
         GameObject model = weaponModels[index];
         anim = model.GetComponent<Animator> ();
         stats = model.GetComponent<WeaponStatsController> ();
+        behaviour = model.GetComponent<WeaponBehaviour> ();
+    }
+
+    private void DrawBulletHole (RaycastHit hit) {
+        GameObject currentHole = bulletHoles[currentBulletHoleIndex];
+        currentHole.transform.position = hit.point;
+        currentHole.transform.rotation = Quaternion.FromToRotation (Vector3.up, hit.normal);
+        currentHole.transform.parent = hit.transform;
+        currentBulletHoleIndex++;
+        if (currentBulletHoleIndex >= bulletHoleMax) {
+            currentBulletHoleIndex = 0;
+        }
     }
 
     private void BeginAnimation () {
@@ -169,7 +164,7 @@ public class WeaponController : MonoBehaviour {
 
     void Load () {
         if (SaveLoad.SaveExistsAt ("weaponInventory")) {
-            List<Weapon> loadedWeapons = SaveLoad.Load<List<Weapon>> ("weaponInventory");
+            List<WeaponState> loadedWeapons = SaveLoad.Load<List<WeaponState>> ("weaponInventory");
             weaponInventory = loadedWeapons;
         }
     }
@@ -179,7 +174,7 @@ public class WeaponController : MonoBehaviour {
     }
 
     public void PickUpWeapon (GameObject item) {
-        foreach (Weapon weapon in weaponInventory) {
+        foreach (WeaponState weapon in weaponInventory) {
             if (item.name == weapon.name) {
                 if (!weapon.collected) {
                     weapon.collected = true;
@@ -198,7 +193,7 @@ public class WeaponController : MonoBehaviour {
     }
 
     public void PickUpAmmo (GameObject item, int amount) {
-        foreach (Weapon weapon in weaponInventory) {
+        foreach (WeaponState weapon in weaponInventory) {
             if (item.name.Contains (weapon.name)) {
                 if (weapon.ammo < weapon.maxAmmo) {
                     hudController.Log ("picked up " + item.name + " x" + amount);

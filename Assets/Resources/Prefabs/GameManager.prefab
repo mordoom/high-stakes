@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4952bdb491df4e947989ecb0bbefbfd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vampiresRemainingCount: 0
   hud: {fileID: 8033897444845305256, guid: 1eeeacf4327668942bb2da561e76f266, type: 3}
   player: {fileID: 8547458197728872726, guid: 21c2b879586af914f9b3332982476444, type: 3}
+  vampiresRemainingCount: 0
 --- !u!114 &936963603770621199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,4 +61,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blood: {fileID: 2572637438989904421, guid: 5bbc04efee927a24b8177b987e133c3f, type: 3}
   bloodTime: 2
-  bloodSplatterMax: 250
+  bloodStain: {fileID: 1335728476179960352, guid: ee9acc71430dac54ba1cf0fefcd71c01,
+    type: 3}
+  bloodStainMax: 3000
+  gibs: {fileID: 2572637438989904421, guid: 65a58b2416a6a4641978978bb83c5bb1, type: 3}
+  gibsTime: 2

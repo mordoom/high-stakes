@@ -23,14 +23,29 @@ public abstract class EnemyController : MonoBehaviour {
         }
     }
 
-    public void Stun() {
+    internal void TakeExplosiveDamage (int damage) {
+        health -= damage;
+
+        if (health <= 0) {
+            health = 0;
+            Explode ();
+        }
+    }
+
+    public void Stun () {
         stunned = true;
     }
 
     public void Die () {
         dead = true;
-        Destroy(GetComponent<Collider>(), 2);
+        Destroy (GetComponent<Collider> (), 1);
         DeathEffects ();
+    }
+
+    public void Explode () {
+        Die();
+        FindObjectOfType<BloodManager>().Explode(gameObject);
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public virtual void DeathEffects () { }

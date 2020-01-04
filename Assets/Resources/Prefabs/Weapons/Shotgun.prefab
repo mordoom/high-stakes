@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8548045618620306465}
   - component: {fileID: 8174724738188246031}
   - component: {fileID: 5886354201221100303}
+  - component: {fileID: 2378880545028642506}
   m_Layer: 8
   m_Name: Shotgun
   m_TagString: Untagged
@@ -46,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: shotgun
-  range: 50
+  range: 20
   fireRate: 1
   splatterDelay: 0
   damage: 25
@@ -56,8 +57,10 @@ MonoBehaviour:
   effectiveRange: 9999
   bulletForce: 3
   pellets: 4
-  spreadDeviation: 4
+  spreadDeviation: 20
   shootSound: {fileID: 0}
+  initalAmmo: -1
+  startCollected: 1
 --- !u!95 &5886354201221100303
 Animator:
   serializedVersion: 3
@@ -77,6 +80,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2378880545028642506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705899607659945177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b547c0f62ab0c428a0c59b44bd09a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &8462071066168700791
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,8 +122,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8462071066168700791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.066, y: 0, z: 0.187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8548045618620306465}

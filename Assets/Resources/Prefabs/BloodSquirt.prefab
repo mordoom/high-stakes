@@ -601,7 +601,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 500
+    maxNumParticles: 10
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -4824,5 +4824,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87286319cd68b2498c249665d737b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodStain: {fileID: 1335728476179960352, guid: ee9acc71430dac54ba1cf0fefcd71c01,
-    type: 3}

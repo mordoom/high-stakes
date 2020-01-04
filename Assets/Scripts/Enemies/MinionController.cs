@@ -100,10 +100,12 @@ public class MinionController : EnemyController {
 
     IEnumerator Attack (HealthController playerHealth) {
         yield return new WaitForSeconds (attackDuration);
+        anim.SetBool ("attacking", true);
         if (!stunned && !dead) {
             playerHealth.TakeDamage (damageAmount);
             yield return new WaitForSeconds (attackCoolDown);
         }
+        anim.SetBool ("attacking", false);
         isAttacking = false;
     }
 

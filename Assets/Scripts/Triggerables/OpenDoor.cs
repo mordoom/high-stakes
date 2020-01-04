@@ -24,7 +24,7 @@ public class OpenDoor : Triggerable {
         if (hud == null) {
             hud = FindObjectOfType<HUDController> ();
         }
-        // Door moves upward - TODO add this feature?
+        // Door moves upward - TODO add this feature? should then refactor this to a superclass
         // if (open) {
         //     transform.position = Vector3.Lerp (transform.position, targetPos, Time.deltaTime * speed);
         // } else {
@@ -64,7 +64,6 @@ public class OpenDoor : Triggerable {
             hud.Log ("door opened with " + keyRequired);
         }
 
-        Debug.Log("opening door");
         SwitchState ();
     }
 

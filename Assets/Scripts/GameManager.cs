@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameManager : MonoBehaviour {
-    public int vampiresRemainingCount = 0;
     public GameObject hud;
     public GameObject player;
+    public int vampiresRemainingCount = 0;
 
     void Start () {
         vampiresRemainingCount = FindObjectsOfType<VampireController> ().Length;
@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour {
 
     public void ReduceVampireCount () {
         vampiresRemainingCount--;
-        if (vampiresRemainingCount == 0) {
+        if (vampiresRemainingCount <= 0) {
+            vampiresRemainingCount = 0;
             foreach (OpenCoffin coffin in FindObjectsOfType<OpenCoffin> ()) {
                 coffin.OnOpen ();
             }

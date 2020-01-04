@@ -14,4 +14,6 @@ public class WeaponStatsController : MonoBehaviour {
     public int pellets = 1;
     public float spreadDeviation = 0;
     public AudioClip shootSound;
+    public int initalAmmo = -1;
+    public bool startCollected = false;
 }

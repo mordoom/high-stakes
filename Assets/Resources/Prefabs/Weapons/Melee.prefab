@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6463721966197778384}
   - component: {fileID: 6429185197501754589}
   - component: {fileID: 2111847090392673720}
+  - component: {fileID: 3884180896478047270}
   m_Layer: 8
   m_Name: Melee
   m_TagString: Untagged
@@ -69,8 +70,8 @@ MonoBehaviour:
   range: 3
   fireRate: 0.85
   splatterDelay: 0.75
-  damage: 25
-  maxAmmo: 299
+  damage: 300
+  maxAmmo: 99
   auto: 0
   projectile: 0
   effectiveRange: 9999
@@ -78,6 +79,23 @@ MonoBehaviour:
   pellets: 1
   spreadDeviation: 0
   shootSound: {fileID: 0}
+  initalAmmo: -1
+  startCollected: 1
+--- !u!114 &3884180896478047270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059930680123351912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b547c0f62ab0c428a0c59b44bd09a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1001 &4605061469826715160
 PrefabInstance:
   m_ObjectHideFlags: 0
