@@ -79,7 +79,7 @@ MonoBehaviour:
   explosionEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   blastRadius: 10
   explodeOnCollision: 0
-  explodeWhenShot: 0
+  explodeWhenShot: 1
 --- !u!1 &4616491926375008142
 GameObject:
   m_ObjectHideFlags: 0

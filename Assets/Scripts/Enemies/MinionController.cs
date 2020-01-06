@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,13 +24,18 @@ public class MinionController : EnemyController {
         anim = GetComponentInChildren<Animator> ();
     }
 
-    public override void Hurt (int damage, string weaponName) {
+    public override void Hurt (WeaponStatsController stats) {
         stunned = true;
         agent.isStopped = true;
         knowsPlayerPosition = true;
-        float duration = weaponName == "melee" ? stunDuration * 2 : stunDuration;
+        float duration = stats.name == "melee" ? stunDuration * 2 : stunDuration;
         StartCoroutine (Stunned (duration));
-        TakeDamage (damage);
+        StartCoroutine (TakeDamageAfterDelay (stats));
+    }
+
+    private IEnumerator TakeDamageAfterDelay (WeaponStatsController stats) {
+        yield return new WaitForSeconds (stats.splatterDelay);
+        TakeDamage (stats.damage);
     }
 
     void Update () {

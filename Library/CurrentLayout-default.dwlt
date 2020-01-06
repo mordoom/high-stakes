@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 544}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -45,7 +45,7 @@ MonoBehaviour:
     y: 0
     width: 2560
     height: 1367
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 544}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -111,10 +111,10 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1317
-  m_MinSize: {x: 683, y: 494}
-  m_MaxSize: {x: 14004, y: 14044}
+  m_MinSize: {x: 679, y: 494}
+  m_MaxSize: {x: 14002, y: 14044}
   vertical: 0
-  controlID: 161
+  controlID: 167
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -136,7 +136,7 @@ MonoBehaviour:
     y: 0
     width: 1952
     height: 1317
-  m_MinSize: {x: 406, y: 494}
+  m_MinSize: {x: 404, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
   controlID: 84
@@ -161,8 +161,8 @@ MonoBehaviour:
     y: 0
     width: 1952
     height: 938
-  m_MinSize: {x: 406, y: 222}
-  m_MaxSize: {x: 8006, y: 4022}
+  m_MinSize: {x: 404, y: 222}
+  m_MaxSize: {x: 8004, y: 4022}
   vertical: 0
   controlID: 85
 --- !u!114 &8
@@ -298,9 +298,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2010
+    x: 1952
     y: 73
-    width: 548
+    width: 606
     height: 1298
   m_ViewDataDictionary: {fileID: 0}
   m_TestTypeToolbarIndex: 0
@@ -312,7 +312,7 @@ MonoBehaviour:
       name: vampires
       fullName: vampires
       resultStatus: 4
-      duration: 1.7152478
+      duration: 2.4144323
       messages: One or more child tests were ignored
       output: 
       stacktrace: 
@@ -328,7 +328,7 @@ MonoBehaviour:
       name: NavMeshComponentsTestsPlaymode.dll
       fullName: D:/UnityProjects/vampires/Library/ScriptAssemblies/NavMeshComponentsTestsPlaymode.dll
       resultStatus: 4
-      duration: 0.2854914
+      duration: 0.289509
       messages: One or more child tests were ignored
       output: 
       stacktrace: 
@@ -344,7 +344,7 @@ MonoBehaviour:
       name: NavMeshSurfaceAgentTests
       fullName: NavMeshSurfaceAgentTests
       resultStatus: 4
-      duration: 0.0911545
+      duration: 0.0931856
       messages: One or more child tests were ignored
       output: 
       stacktrace: 
@@ -360,7 +360,7 @@ MonoBehaviour:
       name: AgentAlignsToSurfaceNextFrame
       fullName: NavMeshSurfaceAgentTests.AgentAlignsToSurfaceNextFrame
       resultStatus: 1
-      duration: 0.0409767
+      duration: 0.0412352
       messages: 
       output: 
       stacktrace: 
@@ -395,7 +395,7 @@ MonoBehaviour:
       name: AgentDoesNotAlignToSurfaceNextFrame
       fullName: NavMeshSurfaceAgentTests.AgentDoesNotAlignToSurfaceNextFrame
       resultStatus: 1
-      duration: 0.0208441
+      duration: 0.0216257
       messages: 
       output: 
       stacktrace: 
@@ -412,7 +412,7 @@ MonoBehaviour:
       name: AgentIdentifiesSurfaceOwner
       fullName: NavMeshSurfaceAgentTests.AgentIdentifiesSurfaceOwner
       resultStatus: 1
-      duration: 0.005363
+      duration: 0.0056422
       messages: 
       output: 
       stacktrace: 
@@ -429,7 +429,7 @@ MonoBehaviour:
       name: NavMeshSurfaceLinkTests
       fullName: NavMeshSurfaceLinkTests
       resultStatus: 1
-      duration: 0.0410668
+      duration: 0.0429575
       messages: 
       output: 
       stacktrace: 
@@ -445,7 +445,7 @@ MonoBehaviour:
       name: ChangingAreaTypeCanBlockPath
       fullName: NavMeshSurfaceLinkTests.ChangingAreaTypeCanBlockPath
       resultStatus: 1
-      duration: 0.0048235
+      duration: 0.0053092
       messages: 
       output: 
       stacktrace: 
@@ -462,7 +462,7 @@ MonoBehaviour:
       name: ChangingCostModifierAffectsRoute
       fullName: NavMeshSurfaceLinkTests.ChangingCostModifierAffectsRoute
       resultStatus: 1
-      duration: 0.0026104
+      duration: 0.0024066
       messages: 
       output: 
       stacktrace: 
@@ -479,7 +479,7 @@ MonoBehaviour:
       name: DisablingBidirectionalMakesTheLinkOneWay
       fullName: NavMeshSurfaceLinkTests.DisablingBidirectionalMakesTheLinkOneWay
       resultStatus: 1
-      duration: 0.001735
+      duration: 0.0019336
       messages: 
       output: 
       stacktrace: 
@@ -496,7 +496,7 @@ MonoBehaviour:
       name: EndpointsMoveRelativeToLinkNextFrameWhenAutoUpdating
       fullName: NavMeshSurfaceLinkTests.EndpointsMoveRelativeToLinkNextFrameWhenAutoUpdating
       resultStatus: 1
-      duration: 0.0203249
+      duration: 0.0211977
       messages: 
       output: 
       stacktrace: 
@@ -513,7 +513,7 @@ MonoBehaviour:
       name: EndpointsMoveRelativeToLinkOnUpdate
       fullName: NavMeshSurfaceLinkTests.EndpointsMoveRelativeToLinkOnUpdate
       resultStatus: 1
-      duration: 0.0019924
+      duration: 0.0020877
       messages: 
       output: 
       stacktrace: 
@@ -530,7 +530,7 @@ MonoBehaviour:
       name: NavMeshLinkCanConnectTwoSurfaces
       fullName: NavMeshSurfaceLinkTests.NavMeshLinkCanConnectTwoSurfaces
       resultStatus: 1
-      duration: 0.0017292
+      duration: 0.0018936
       messages: 
       output: 
       stacktrace: 
@@ -547,7 +547,7 @@ MonoBehaviour:
       name: NavMeshSurfaceModifierTests
       fullName: NavMeshSurfaceModifierTests
       resultStatus: 1
-      duration: 0.0195137
+      duration: 0.0192304
       messages: 
       output: 
       stacktrace: 
@@ -563,7 +563,7 @@ MonoBehaviour:
       name: ModifierIgnoreAffectsChild
       fullName: NavMeshSurfaceModifierTests.ModifierIgnoreAffectsChild
       resultStatus: 1
-      duration: 0.0025255
+      duration: 0.0028986
       messages: 
       output: 
       stacktrace: 
@@ -580,7 +580,7 @@ MonoBehaviour:
       name: ModifierIgnoreAffectsSelf
       fullName: NavMeshSurfaceModifierTests.ModifierIgnoreAffectsSelf
       resultStatus: 1
-      duration: 0.0008114
+      duration: 0.0006808
       messages: 
       output: 
       stacktrace: 
@@ -597,7 +597,7 @@ MonoBehaviour:
       name: ModifierIgnoreDoesNotAffectSibling
       fullName: NavMeshSurfaceModifierTests.ModifierIgnoreDoesNotAffectSibling
       resultStatus: 1
-      duration: 0.0012336
+      duration: 0.0011401
       messages: 
       output: 
       stacktrace: 
@@ -614,7 +614,7 @@ MonoBehaviour:
       name: ModifierOverrideAreaAffectsChild
       fullName: NavMeshSurfaceModifierTests.ModifierOverrideAreaAffectsChild
       resultStatus: 1
-      duration: 0.0013077
+      duration: 0.0012935
       messages: 
       output: 
       stacktrace: 
@@ -631,7 +631,7 @@ MonoBehaviour:
       name: ModifierOverrideAreaAffectsSelf
       fullName: NavMeshSurfaceModifierTests.ModifierOverrideAreaAffectsSelf
       resultStatus: 1
-      duration: 0.0011259
+      duration: 0.0010577
       messages: 
       output: 
       stacktrace: 
@@ -648,7 +648,7 @@ MonoBehaviour:
       name: ModifierOverrideAreaDoesNotAffectSibling
       fullName: NavMeshSurfaceModifierTests.ModifierOverrideAreaDoesNotAffectSibling
       resultStatus: 1
-      duration: 0.0012429
+      duration: 0.0011426
       messages: 
       output: 
       stacktrace: 
@@ -665,7 +665,7 @@ MonoBehaviour:
       name: NavMeshSurfaceModifierVolumeTests
       fullName: NavMeshSurfaceModifierVolumeTests
       resultStatus: 1
-      duration: 0.0138362
+      duration: 0.0127365
       messages: 
       output: 
       stacktrace: 
@@ -681,7 +681,7 @@ MonoBehaviour:
       name: AreaAffectsNavMeshOverlapping
       fullName: NavMeshSurfaceModifierVolumeTests.AreaAffectsNavMeshOverlapping
       resultStatus: 1
-      duration: 0.0031207
+      duration: 0.0028123
       messages: 
       output: 
       stacktrace: 
@@ -698,7 +698,7 @@ MonoBehaviour:
       name: AreaDoesNotAffectsNavMeshWhenNotOverlapping
       fullName: NavMeshSurfaceModifierVolumeTests.AreaDoesNotAffectsNavMeshWhenNotOverlapping
       resultStatus: 1
-      duration: 0.0013007
+      duration: 0.001604
       messages: 
       output: 
       stacktrace: 
@@ -715,7 +715,7 @@ MonoBehaviour:
       name: BuildUsesOnlyIncludedModifierVolume
       fullName: NavMeshSurfaceModifierVolumeTests.BuildUsesOnlyIncludedModifierVolume
       resultStatus: 1
-      duration: 0.0012782
+      duration: 0.001452
       messages: 
       output: 
       stacktrace: 
@@ -732,7 +732,7 @@ MonoBehaviour:
       name: NavMeshSurfaceTests
       fullName: NavMeshSurfaceTests
       resultStatus: 1
-      duration: 0.0762373
+      duration: 0.0793607
       messages: 
       output: 
       stacktrace: 
@@ -748,7 +748,7 @@ MonoBehaviour:
       name: ActiveSurfacesContainsOnlyActiveAndEnabledSurface
       fullName: NavMeshSurfaceTests.ActiveSurfacesContainsOnlyActiveAndEnabledSurface
       resultStatus: 1
-      duration: 0.0023247
+      duration: 0.0022049
       messages: 
       output: 
       stacktrace: 
@@ -765,7 +765,7 @@ MonoBehaviour:
       name: BuildIgnoresGeometryOutsideBounds
       fullName: NavMeshSurfaceTests.BuildIgnoresGeometryOutsideBounds
       resultStatus: 1
-      duration: 0.0010793
+      duration: 0.001037
       messages: 
       output: 
       stacktrace: 
@@ -782,7 +782,7 @@ MonoBehaviour:
       name: BuildIgnoresGeometrySiblings
       fullName: NavMeshSurfaceTests.BuildIgnoresGeometrySiblings
       resultStatus: 1
-      duration: 0.0010517
+      duration: 0.0012153
       messages: 
       output: 
       stacktrace: 
@@ -799,7 +799,7 @@ MonoBehaviour:
       name: BuildUsesOnlyIncludedLayers
       fullName: NavMeshSurfaceTests.BuildUsesOnlyIncludedLayers
       resultStatus: 1
-      duration: 0.000661
+      duration: 0.000651
       messages: 
       output: 
       stacktrace: 
@@ -816,7 +816,7 @@ MonoBehaviour:
       name: CanBuildCollidersAndIgnoreRenderMeshes
       fullName: NavMeshSurfaceTests.CanBuildCollidersAndIgnoreRenderMeshes
       resultStatus: 1
-      duration: 0.0012726
+      duration: 0.0022797
       messages: 
       output: 
       stacktrace: 
@@ -833,7 +833,7 @@ MonoBehaviour:
       name: CanBuildRenderMeshesAndIgnoreColliders
       fullName: NavMeshSurfaceTests.CanBuildRenderMeshesAndIgnoreColliders
       resultStatus: 1
-      duration: 0.0012618
+      duration: 0.0012823
       messages: 
       output: 
       stacktrace: 
@@ -850,7 +850,7 @@ MonoBehaviour:
       name: CanBuildWithCustomAgentTypeID
       fullName: NavMeshSurfaceTests.CanBuildWithCustomAgentTypeID
       resultStatus: 1
-      duration: 0.0053176
+      duration: 0.005422
       messages: 
       output: "No build settings for agent type ID 1234\r\n"
       stacktrace: 
@@ -867,7 +867,7 @@ MonoBehaviour:
       name: CanBuildWithCustomArea
       fullName: NavMeshSurfaceTests.CanBuildWithCustomArea
       resultStatus: 1
-      duration: 0.0012112
+      duration: 0.0011779
       messages: 
       output: 
       stacktrace: 
@@ -884,7 +884,7 @@ MonoBehaviour:
       name: DefaultSettingsMatchBuiltinSettings
       fullName: NavMeshSurfaceTests.DefaultSettingsMatchBuiltinSettings
       resultStatus: 1
-      duration: 0.001669
+      duration: 0.001658
       messages: 
       output: 
       stacktrace: 
@@ -901,7 +901,7 @@ MonoBehaviour:
       name: NavMeshCanBeRemovedAndAdded
       fullName: NavMeshSurfaceTests.NavMeshCanBeRemovedAndAdded
       resultStatus: 1
-      duration: 0.0012088
+      duration: 0.0011591
       messages: 
       output: 
       stacktrace: 
@@ -918,7 +918,7 @@ MonoBehaviour:
       name: NavMeshIsAvailableAfterBuild
       fullName: NavMeshSurfaceTests.NavMeshIsAvailableAfterBuild
       resultStatus: 1
-      duration: 0.0011071
+      duration: 0.0011089
       messages: 
       output: 
       stacktrace: 
@@ -935,7 +935,7 @@ MonoBehaviour:
       name: NavMeshIsNotAvailableWhenDisabled
       fullName: NavMeshSurfaceTests.NavMeshIsNotAvailableWhenDisabled
       resultStatus: 1
-      duration: 0.0011724
+      duration: 0.0011801
       messages: 
       output: 
       stacktrace: 
@@ -952,7 +952,7 @@ MonoBehaviour:
       name: NavMeshMovesToSurfacePositionNextFrame
       fullName: NavMeshSurfaceTests.NavMeshMovesToSurfacePositionNextFrame
       resultStatus: 1
-      duration: 0.0188509
+      duration: 0.0208239
       messages: 
       output: 
       stacktrace: 
@@ -969,7 +969,7 @@ MonoBehaviour:
       name: UpdatingAndAddingNavMesh
       fullName: NavMeshSurfaceTests.UpdatingAndAddingNavMesh
       resultStatus: 1
-      duration: 0.0203846
+      duration: 0.0205851
       messages: 
       output: 
       stacktrace: 
@@ -986,7 +986,7 @@ MonoBehaviour:
       name: Tests.dll
       fullName: D:/UnityProjects/vampires/Library/ScriptAssemblies/Tests.dll
       resultStatus: 1
-      duration: 1.3008008
+      duration: 2.0502548
       messages: 
       output: 
       stacktrace: 
@@ -1002,7 +1002,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 1.2933033
+      duration: 2.0435326
       messages: 
       output: 
       stacktrace: 
@@ -1018,7 +1018,7 @@ MonoBehaviour:
       name: IntegrationTest
       fullName: Tests.IntegrationTest
       resultStatus: 1
-      duration: 1.285175
+      duration: 2.0354128
       messages: 
       output: 
       stacktrace: 
@@ -1034,7 +1034,7 @@ MonoBehaviour:
       name: ReduceVampireCount
       fullName: Tests.IntegrationTest.ReduceVampireCount
       resultStatus: 1
-      duration: 1.2774155
+      duration: 2.0277238
       messages: 
       output: 
       stacktrace: 
@@ -1046,7 +1046,7 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1002
       parentUniqueId: Tests.dll/Tests/[Tests][Tests.IntegrationTest][suite]
-    m_ResultText: Tests.dll (1.301s)
+    m_ResultText: Tests.dll (2.050s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
@@ -1289,10 +1289,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 68fbffff
+      scrollPos: {x: 0, y: 106}
+      m_SelectedIDs: a8d1fcff
+      m_LastClickedID: -208472
+      m_ExpandedIDs: 8679fdff78e5ffff90e5ffff32e9ffffd2eaffff02ebffff74f3ffff68fbffff2653000036530000e45300003e550000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1355,19 +1355,19 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Prefabs/Weapons
+    - Assets/Resources/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Resources/Prefabs/Weapons
+  - Assets/Resources/Prefabs
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\UnityProjects\vampires
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 120}
-    m_SelectedIDs: 0c340000
-    m_LastClickedID: 13324
+    scrollPos: {x: 0, y: 95}
+    m_SelectedIDs: ca360000
+    m_LastClickedID: 14026
     m_ExpandedIDs: 000000000e3300006a3300007c330000b433000004340000ee340000683500001c360000ca3600000c37000064390000503a0000203c0000603c0000303d0000923d00007e3e0000903e0000844a0000864a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1423,7 +1423,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 042600005a33000004f6ffff9634000034420000303300005e250000323300009025000094250000c633000070250000cc660000e8500000847a0000701a0000261b00002a1500002e4000007a4200002c680000823600003c65000006bf000004350000ae4b0000283f00002809010086360000fa370000e248000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1488,9 +1488,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 17.5, y: 1, z: 164}
+    m_Target: {x: 51.99115, y: 1.5309231, z: -10.433483}
     speed: 2
-    m_Value: {x: 17.5, y: 1, z: 164}
+    m_Value: {x: 51.99115, y: 1.5309231, z: -10.433483}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1519,13 +1519,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.008918188, y: -0.9876042, z: 0.14623277, w: -0.060423963}
+    m_Target: {x: 0.054692235, y: -0.94202965, z: 0.18593553, w: 0.27477834}
     speed: 2
-    m_Value: {x: -0.008916063, y: -0.9873689, z: 0.14619793, w: -0.06040957}
+    m_Value: {x: 0.054678943, y: -0.9418007, z: 0.18589035, w: 0.27471155}
   m_Size:
-    m_Target: 22
+    m_Target: 6.883485
     speed: 2
-    m_Value: 22
+    m_Value: 6.883485
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1631,7 +1631,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -37490
+  m_LastSelectedObjectID: -208472
 --- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52

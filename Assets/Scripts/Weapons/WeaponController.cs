@@ -70,11 +70,14 @@ public class WeaponController : MonoBehaviour {
 
     private void DetectBulletHit (RaycastHit hit) {
         EnemyController enemy = hit.collider.GetComponent<EnemyController> ();
+        Shootable shootable = hit.collider.GetComponent<Shootable> ();
         if (enemy != null) {
             if (stats.name == "melee") {
                 state.ammo--;
             }
             behaviour.DamageEnemy (enemy, hit);
+        } else if (shootable != null) {
+            shootable.wasShotBy (stats);
         } else {
             DrawBulletHole (hit);
         }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class WeaponBehaviour : MonoBehaviour {
@@ -34,8 +32,8 @@ public class WeaponBehaviour : MonoBehaviour {
     }
 
     public virtual void DamageEnemy (EnemyController enemy, RaycastHit hit) {
-        if (!hit.collider.isTrigger && enemy != null && enemy.CanBeHurt (stats.name)) {
-            StartCoroutine (HurtEnemy (enemy));
+        if (enemy != null) {
+            enemy.wasShotBy (stats);
             Rigidbody rb = hit.collider.GetComponent<Rigidbody> ();
             if (rb != null) {
                 Vector3 force = transform.forward * stats.bulletForce;
@@ -44,10 +42,5 @@ public class WeaponBehaviour : MonoBehaviour {
 
             bloodManager.Splatter (hit, stats.splatterDelay);
         }
-    }
-
-    private IEnumerator HurtEnemy (EnemyController enemy) {
-        yield return new WaitForSeconds (stats.splatterDelay);
-        enemy.Hurt (stats.damage, stats.name);
     }
 }

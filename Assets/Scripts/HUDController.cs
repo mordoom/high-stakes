@@ -7,6 +7,7 @@ public class HUDController : MonoBehaviour {
     public Text vampiresRemainingCountText;
     public Text ammoCountText;
     public Text healthText;
+    public Text armorText;
     public Text vampireHealthText;
     public Text log;
     public float logTextDisplayLength = 3;
@@ -31,6 +32,7 @@ public class HUDController : MonoBehaviour {
         vampiresRemainingCountText.text = gameManager.vampiresRemainingCount.ToString ();
         ammoCountText.text = weaponController.HudAmmoCount ();
         healthText.text = healthController.health.ToString ();
+        armorText.text = healthController.armor.ToString ();
     }
 
     public void Log (string message) {

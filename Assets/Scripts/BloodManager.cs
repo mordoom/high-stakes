@@ -15,12 +15,6 @@ public class BloodManager : MonoBehaviour {
     public GameObject gibs;
     public float gibsTime = 3;
 
-    void Start () {
-        // for (int i = 0; i < bloodStainMax; i++) {
-        //     bloodCache.Add (Instantiate (bloodStain));
-        // }
-    }
-
     public void Splatter (RaycastHit hit, float splatterDelay) {
         StartCoroutine (CreateSplatter (hit, splatterDelay));
     }
@@ -43,10 +37,10 @@ public class BloodManager : MonoBehaviour {
             currentStain.transform.parent = collision.colliderComponent.transform;
             bloodCache.Add (currentStain);
         } else {
-            GameObject currentStain = bloodCache[currentBloodSplatterIndex];
-            currentStain.transform.position = collision.intersection;
-            currentStain.transform.rotation = Quaternion.FromToRotation (Vector3.up, collision.normal);
-            currentStain.transform.parent = collision.colliderComponent.transform;
+            GameObject cachedStain = bloodCache[currentBloodSplatterIndex];
+            cachedStain.transform.position = collision.intersection;
+            cachedStain.transform.rotation = Quaternion.FromToRotation (Vector3.up, collision.normal);
+            cachedStain.transform.parent = collision.colliderComponent.transform;
             currentBloodSplatterIndex++;
             if (currentBloodSplatterIndex >= bloodStainMax) {
                 currentBloodSplatterIndex = 0;

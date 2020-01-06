@@ -16,10 +16,11 @@ namespace Tests {
             Assert.AreEqual (1, manager.vampiresRemainingCount);
 
             VampireController controller = MonoBehaviour.FindObjectOfType<VampireController>();
+            WeaponStatsController stats = MonoBehaviour.FindObjectOfType<WeaponStatsController>();
             Assert.AreEqual (false, controller.dead);
             Assert.Less (0, controller.health);
             while (controller.health > 0) {
-                controller.Hurt (100, "melee");
+                controller.Hurt (stats);
             }
             Assert.AreEqual (0, controller.health);
             Assert.AreEqual (true, controller.dead);

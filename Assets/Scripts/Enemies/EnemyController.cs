@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public abstract class EnemyController : MonoBehaviour {
+public abstract class EnemyController : MonoBehaviour, Shootable {
     public bool dead = false;
     public bool stunned = false;
     public int health = 100;
@@ -10,8 +10,14 @@ public abstract class EnemyController : MonoBehaviour {
         return !dead;
     }
 
-    public virtual void Hurt (int damage, string weaponName) {
-        TakeDamage (damage);
+    public void wasShotBy (WeaponStatsController stats) {
+        if (CanBeHurt (stats.name)) {
+            Hurt (stats);
+        }
+    }
+
+    public virtual void Hurt (WeaponStatsController stats) {
+        TakeDamage (stats.damage);
     }
 
     public void TakeDamage (int damage) {
@@ -43,9 +49,9 @@ public abstract class EnemyController : MonoBehaviour {
     }
 
     public void Explode () {
-        Die();
-        FindObjectOfType<BloodManager>().Explode(gameObject);
-        transform.GetChild(0).gameObject.SetActive(false);
+        Die ();
+        FindObjectOfType<BloodManager> ().Explode (gameObject);
+        transform.GetChild (0).gameObject.SetActive (false);
     }
 
     public virtual void DeathEffects () { }

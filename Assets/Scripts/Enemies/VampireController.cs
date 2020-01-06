@@ -43,13 +43,13 @@ public class VampireController : EnemyController {
         regularScale = transform.localScale;
     }
 
-    public override void Hurt (int damage, string weaponName) {
-        if (weaponName == "melee") {
-            TakeDamage (damage);
+    public override void Hurt (WeaponStatsController stats) {
+        if (stats.name == "melee") {
+            TakeDamage (stats.damage);
             stunned = true;
             StartCoroutine (Stunned ());
         } else {
-            TakeDamage (damage / 10);
+            TakeDamage (stats.damage / 10);
             CheckIfTimeToWakeUp ();
         }
     }
