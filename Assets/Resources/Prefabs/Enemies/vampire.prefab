@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 2721229383061079400}
   - component: {fileID: 2721229383061079447}
   - component: {fileID: 244945634}
+  - component: {fileID: 3181753597622337565}
   m_Layer: 0
   m_Name: vampire
   m_TagString: Untagged
@@ -409,6 +410,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3181753597622337565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721229383061079402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ac066595334934dbfee231f1a15fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knowsPlayerPosition: 0
+  interactRange: 3
+  maxChaseDist: 20
 --- !u!1 &2721229383382608764
 GameObject:
   m_ObjectHideFlags: 0

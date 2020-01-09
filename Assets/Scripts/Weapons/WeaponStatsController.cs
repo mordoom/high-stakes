@@ -16,4 +16,5 @@ public class WeaponStatsController : MonoBehaviour {
     public AudioClip shootSound;
     public int initalAmmo = -1;
     public bool startCollected = false;
+    public ParticleSystem muzzleFlash;
 }

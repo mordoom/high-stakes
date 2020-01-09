@@ -145,6 +145,9 @@ public class WeaponController : MonoBehaviour {
         if (anim != null) {
             anim.SetBool ("attacking", true);
         }
+        if (stats.muzzleFlash != null) {
+            stats.muzzleFlash.Play();
+        }
         StartCoroutine (Attack ());
     }
 

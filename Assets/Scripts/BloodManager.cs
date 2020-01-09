@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BloodManager : MonoBehaviour {
@@ -7,13 +6,9 @@ public class BloodManager : MonoBehaviour {
     public float bloodTime = 2;
 
     public GameObject bloodStain;
-    public int bloodStainMax = 1000;
-
-    private int currentBloodSplatterIndex = 0;
-    private List<GameObject> bloodCache = new List<GameObject> ();
-
     public GameObject gibs;
     public float gibsTime = 3;
+    private float bloodTimeOut = 10;
 
     public void Splatter (RaycastHit hit, float splatterDelay) {
         StartCoroutine (CreateSplatter (hit, splatterDelay));
@@ -30,22 +25,11 @@ public class BloodManager : MonoBehaviour {
     }
 
     internal void CreateBloodStain (ParticleCollisionEvent collision) {
-        if (bloodCache.Count < bloodStainMax) {
-            GameObject currentStain = Instantiate (bloodStain);
-            currentStain.transform.position = collision.intersection;
-            currentStain.transform.rotation = Quaternion.FromToRotation (Vector3.up, collision.normal);
-            currentStain.transform.parent = collision.colliderComponent.transform;
-            bloodCache.Add (currentStain);
-        } else {
-            GameObject cachedStain = bloodCache[currentBloodSplatterIndex];
-            cachedStain.transform.position = collision.intersection;
-            cachedStain.transform.rotation = Quaternion.FromToRotation (Vector3.up, collision.normal);
-            cachedStain.transform.parent = collision.colliderComponent.transform;
-            currentBloodSplatterIndex++;
-            if (currentBloodSplatterIndex >= bloodStainMax) {
-                currentBloodSplatterIndex = 0;
-            }
-        }
+        GameObject currentStain = Instantiate (bloodStain);
+        currentStain.transform.position = collision.intersection;
+        currentStain.transform.rotation = Quaternion.FromToRotation (Vector3.up, collision.normal);
+        currentStain.transform.parent = collision.colliderComponent.transform;
+        Destroy(currentStain, bloodTimeOut);
     }
 
     IEnumerator CreateExplosionSplatter (GameObject thingExploding, float splatterDelay) {

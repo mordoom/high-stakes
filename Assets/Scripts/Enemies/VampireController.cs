@@ -12,11 +12,11 @@ public class VampireController : EnemyController {
     public GameObject mistEffect;
     public float projectileSpeed = 10f;
 
-    private WeaponController player;
+    private GameObject player;
     private HUDController hud;
     private NavMeshAgent agent;
+    private ChasePlayer chaser;
     private float smooth = 2f;
-    private float interactRange = 3;
 
     enum State {
         ASLEEP,
@@ -38,6 +38,7 @@ public class VampireController : EnemyController {
 
     void Awake () {
         agent = GetComponent<NavMeshAgent> ();
+        chaser = GetComponent<ChasePlayer> ();
         agent.isStopped = true;
         knifeThrowCoolDown = knifeThrowCoolDownLength;
         regularScale = transform.localScale;
@@ -61,7 +62,7 @@ public class VampireController : EnemyController {
 
     void Update () {
         if (player == null) {
-            player = FindObjectOfType<WeaponController> ();
+            player = FindObjectOfType<WeaponController> ().gameObject;
         }
 
         ListenForPlayer ();
@@ -102,7 +103,7 @@ public class VampireController : EnemyController {
     }
 
     private void CheckIfTimeToWakeUp () {
-        if (currentState == State.ASLEEP && player.makingNoise) {
+        if (currentState == State.ASLEEP && player.GetComponent<WeaponController> ().makingNoise) {
             currentState = State.CHASING;
             WakeUpMinions ();
         }
@@ -117,35 +118,13 @@ public class VampireController : EnemyController {
     }
 
     private void ChasePlayer () {
-        agent.SetDestination (player.transform.position);
-        agent.isStopped = false;
-
-        float playerDistance = Vector3.Distance (transform.position, player.transform.position);
-        if (playerDistance <= 2) {
-            agent.isStopped = true;
-        }
-
-        if (health <= 100 && !misted) {
-            misted = true;
-            currentState = State.MIST;
-            GameObject newMistEffect = Instantiate (mistEffect, transform.position, transform.rotation);
-            StartCoroutine (MistCooldown (newMistEffect));
-        }
-
-        RaycastHit hit;
-        Vector3 rayPos = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
-        if (Physics.Raycast (rayPos, transform.TransformDirection (Vector3.forward), out hit, interactRange)) {
-            OpenDoor openDoor = hit.collider.GetComponent<OpenDoor> ();
-            if (openDoor != null && !openDoor.open) {
-                openDoor.Interact ();
-            }
-
-            HealthController playerHealth = hit.collider.GetComponent<HealthController> ();
-            if (playerHealth != null) {
-                Bite (playerHealth);
-            }
+        HealthController playerHealth = chaser.Chase ();
+        if (playerHealth != null) {
+            Bite (playerHealth);
         } else {
             if (knifeThrowCoolDown <= 0) {
+                RaycastHit hit;
+                Vector3 rayPos = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
                 if (Physics.Raycast (rayPos, transform.TransformDirection (Vector3.forward), out hit, lineOfSight)) {
                     ThrowKnife ();
                 }
@@ -153,7 +132,13 @@ public class VampireController : EnemyController {
             } else {
                 knifeThrowCoolDown -= Time.deltaTime;
             }
+        }
 
+        if (health <= 100 && !misted) {
+            misted = true;
+            currentState = State.MIST;
+            GameObject newMistEffect = Instantiate (mistEffect, transform.position, transform.rotation);
+            StartCoroutine (MistCooldown (newMistEffect));
         }
     }
 

@@ -3,48 +3,58 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MinionController : EnemyController {
+public class PriestController : EnemyController {
     public bool awake = false;
     public int damageAmount = 8;
     public float attackDuration = 0.5f;
     public float attackCoolDown = 1f;
 
     private GameObject player;
+    private HealthController playerHealth;
     private NavMeshAgent agent;
     private Animator anim;
     private ChasePlayer chaser;
+    private PatrolArea patrol;
     private bool isAttacking = false;
     private float stunDuration = 0.5f;
+    private int weaponRange = 99;
 
     void Start () {
         agent = GetComponent<NavMeshAgent> ();
         anim = GetComponentInChildren<Animator> ();
-        chaser = GetComponent<ChasePlayer>();
+        chaser = GetComponent<ChasePlayer> ();
+        patrol = GetComponent<PatrolArea> ();
     }
 
     public override void Hurt (WeaponStatsController stats) {
         stunned = true;
         agent.isStopped = true;
         chaser.knowsPlayerPosition = true;
-        float duration = stats.name == "melee" ? stunDuration * 2 : stunDuration;
-        StartCoroutine (Stunned (duration));
+        StartCoroutine (Stunned (stunDuration));
         StartCoroutine (TakeDamageAfterDelay (stats));
     }
 
     private IEnumerator TakeDamageAfterDelay (WeaponStatsController stats) {
         yield return new WaitForSeconds (stats.splatterDelay);
-        TakeDamage (stats.damage);
+        int finalDamage = stats.name == "melee" ? stats.damage / 2 : stats.damage;
+        TakeDamage (finalDamage);
     }
 
     void Update () {
         if (player == null) {
             player = FindObjectOfType<WeaponController> ().gameObject;
+            playerHealth = FindObjectOfType<HealthController> ();
         }
 
-        if (awake && !dead && !stunned) {
-            HealthController playerHealth = chaser.Chase();
-            if (playerHealth != null && !isAttacking) {
-                StartCoroutine (Attack (playerHealth));
+        if (awake && !dead && !stunned && !isAttacking) {
+            if (chaser.knowsPlayerPosition) {
+                chaser.Chase ();
+                if (IsAimingAtPlayer ()) {
+                    StartCoroutine (Attack ());
+                }
+            } else {
+                patrol.Patrol ();
+                chaser.knowsPlayerPosition = chaser.SearchForPlayer ();
             }
 
             if (agent.isStopped) {
@@ -55,19 +65,31 @@ public class MinionController : EnemyController {
         }
     }
 
+    private bool IsAimingAtPlayer () {
+        Vector3 bulletPos = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
+        RaycastHit hit;
+        if (Physics.Raycast (bulletPos, transform.forward, out hit, weaponRange)) {
+            return hit.collider.GetComponent<HealthController> () != null;
+        }
+        return false;
+    }
+
     IEnumerator Stunned (float duration) {
         yield return new WaitForSeconds (duration);
         stunned = false;
     }
 
-    IEnumerator Attack (HealthController playerHealth) {
+    IEnumerator Attack () {
         isAttacking = true;
+        agent.isStopped = true;
         yield return new WaitForSeconds (attackDuration);
+
         anim.SetBool ("attacking", true);
-        if (!stunned && !dead) {
+        if (IsAimingAtPlayer()) {
             playerHealth.TakeDamage (damageAmount);
-            yield return new WaitForSeconds (attackCoolDown);
         }
+
+        yield return new WaitForSeconds (attackCoolDown);
         anim.SetBool ("attacking", false);
         isAttacking = false;
     }

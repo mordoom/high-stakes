@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5860482970115493969}
   - component: {fileID: 1280161023935829500}
   - component: {fileID: 3577759577356731093}
+  - component: {fileID: 562843214075452596}
   m_Layer: 0
   m_Name: minion
   m_TagString: Untagged
@@ -49,7 +50,7 @@ MonoBehaviour:
   dead: 0
   stunned: 0
   health: 100
-  awake: 0
+  awake: 1
   damageAmount: 8
   attackDuration: 0.5
   attackCoolDown: 1
@@ -88,8 +89,23 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0110617, y: 2.5839162, z: 1.0200328}
-  m_Center: {x: 0.06084896, y: 1.311763, z: -0.022731328}
+  m_Size: {x: 1.0110617, y: 2.5839162, z: 0.28409353}
+  m_Center: {x: 0.06084896, y: 1.311763, z: -0.05670316}
+--- !u!114 &562843214075452596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3362724480621470080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ac066595334934dbfee231f1a15fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knowsPlayerPosition: 0
+  interactRange: 3
+  maxChaseDist: 20
 --- !u!1001 &454550765874405577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,11 +117,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: lowpolyenemy_anim
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 8e61723f71124a54081229f71de8cde9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8e61723f71124a54081229f71de8cde9,
         type: 3}
