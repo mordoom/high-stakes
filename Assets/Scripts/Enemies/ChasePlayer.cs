@@ -6,6 +6,7 @@ public class ChasePlayer : MonoBehaviour {
     private GameObject player;
 
     public bool knowsPlayerPosition;
+    public bool sniper = false;
     public float interactRange = 3;
     public float maxChaseDist = 20;
 
@@ -20,6 +21,9 @@ public class ChasePlayer : MonoBehaviour {
     }
 
     public HealthController Chase () {
+        if (sniper) {
+            return null;
+        }
         agent.SetDestination (player.transform.position);
         agent.isStopped = !knowsPlayerPosition;
 
@@ -35,11 +39,6 @@ public class ChasePlayer : MonoBehaviour {
         RaycastHit hit;
         Vector3 rayPos = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
         if (Physics.Raycast (rayPos, transform.TransformDirection (Vector3.forward), out hit, interactRange)) {
-            OpenDoor openDoor = hit.collider.GetComponent<OpenDoor> ();
-            if (openDoor != null && !openDoor.open) {
-                openDoor.Interact ();
-            }
-
             HealthController playerHealth = hit.collider.GetComponent<HealthController> ();
             return playerHealth;
         }

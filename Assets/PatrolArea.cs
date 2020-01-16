@@ -2,7 +2,7 @@
 using UnityEngine.AI;
 
 public class PatrolArea : MonoBehaviour {
-    public Transform[] route;
+    public Transform[] route = {};
     public float patrolPauseLength = 3;
 
     private int destPoint = 0;

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class WeaponController : MonoBehaviour {
     public float attackTime = 1f;
@@ -48,6 +49,14 @@ public class WeaponController : MonoBehaviour {
     void Update () {
         HandleWeaponSwitch ();
         HandleAttack ();
+
+        float horizontal = CrossPlatformInputManager.GetAxis ("Horizontal");
+        float vertical = CrossPlatformInputManager.GetAxis ("Vertical");
+        if ((horizontal != 0 || vertical != 0) && !attacking) {
+            anim.SetBool("walking", true);
+        } else {
+            anim.SetBool("walking", false);
+        }
     }
 
     private void HandleAttack () {
@@ -146,7 +155,7 @@ public class WeaponController : MonoBehaviour {
             anim.SetBool ("attacking", true);
         }
         if (stats.muzzleFlash != null) {
-            stats.muzzleFlash.Play();
+            stats.muzzleFlash.Play ();
         }
         StartCoroutine (Attack ());
     }

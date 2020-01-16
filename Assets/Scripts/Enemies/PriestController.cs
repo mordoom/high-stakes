@@ -8,6 +8,7 @@ public class PriestController : EnemyController {
     public int damageAmount = 8;
     public float attackDuration = 0.5f;
     public float attackCoolDown = 1f;
+    public int weaponRange = 99;
 
     private GameObject player;
     private HealthController playerHealth;
@@ -17,7 +18,6 @@ public class PriestController : EnemyController {
     private PatrolArea patrol;
     private bool isAttacking = false;
     private float stunDuration = 0.5f;
-    private int weaponRange = 99;
 
     void Start () {
         agent = GetComponent<NavMeshAgent> ();
@@ -67,8 +67,9 @@ public class PriestController : EnemyController {
 
     private bool IsAimingAtPlayer () {
         Vector3 bulletPos = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
+        Vector3 dir = player.transform.position - bulletPos;
         RaycastHit hit;
-        if (Physics.Raycast (bulletPos, transform.forward, out hit, weaponRange)) {
+        if (Physics.Raycast (bulletPos, dir, out hit, weaponRange)) {
             return hit.collider.GetComponent<HealthController> () != null;
         }
         return false;
@@ -85,7 +86,7 @@ public class PriestController : EnemyController {
         yield return new WaitForSeconds (attackDuration);
 
         anim.SetBool ("attacking", true);
-        if (IsAimingAtPlayer()) {
+        if (IsAimingAtPlayer ()) {
             playerHealth.TakeDamage (damageAmount);
         }
 

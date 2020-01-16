@@ -50,17 +50,18 @@ MonoBehaviour:
   range: 9999
   fireRate: 0.1
   splatterDelay: 0
-  damage: 10
+  damage: 20
   maxAmmo: 299
   auto: 1
   projectile: 0
   effectiveRange: 9999
-  bulletForce: 3
+  bulletForce: 30
   pellets: 1
   spreadDeviation: 0
   shootSound: {fileID: 0}
   initalAmmo: -1
   startCollected: 1
+  muzzleFlash: {fileID: 0}
 --- !u!95 &5886354201221100303
 Animator:
   serializedVersion: 3

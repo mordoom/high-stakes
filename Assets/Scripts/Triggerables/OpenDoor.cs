@@ -12,31 +12,44 @@ public class OpenDoor : Triggerable {
     public float smooth = 2f;
     public bool open = false;
 
+    public enum OPTIONS {
+        Rotate = 0,
+        Slide = 1
+    }
+
+    public OPTIONS openOption = OPTIONS.Rotate;
+
     private Vector3 startPos;
     private HUDController hud;
 
     private void Start () {
         startPos = transform.position;
-        targetPos = new Vector3 (transform.position.x, transform.position.y + 5, transform.position.z);
+        targetPos = new Vector3 (transform.position.x, transform.position.y + 3.5f, transform.position.z);
     }
 
     void Update () {
         if (hud == null) {
             hud = FindObjectOfType<HUDController> ();
         }
-        // Door moves upward - TODO add this feature? should then refactor this to a superclass
-        // if (open) {
-        //     transform.position = Vector3.Lerp (transform.position, targetPos, Time.deltaTime * speed);
-        // } else {
-        //     transform.position = Vector3.Lerp (transform.position, startPos, Time.deltaTime * speed);
-        // }
 
-        if (open) {
-            Quaternion targetRotation = Quaternion.Euler (0, doorOpenAngle, 0);
-            transform.localRotation = Quaternion.Slerp (transform.localRotation, targetRotation, smooth * Time.deltaTime);
-        } else {
-            Quaternion targetRotation = Quaternion.Euler (0, doorCloseAngle, 0);
-            transform.localRotation = Quaternion.Slerp (transform.localRotation, targetRotation, smooth * Time.deltaTime);
+        switch (openOption) {
+            case OPTIONS.Rotate:
+            default:
+                if (open) {
+                    Quaternion targetRotation = Quaternion.Euler (0, doorOpenAngle, 0);
+                    transform.localRotation = Quaternion.Slerp (transform.localRotation, targetRotation, smooth * Time.deltaTime);
+                } else {
+                    Quaternion targetRotation = Quaternion.Euler (0, doorCloseAngle, 0);
+                    transform.localRotation = Quaternion.Slerp (transform.localRotation, targetRotation, smooth * Time.deltaTime);
+                }
+                break;
+            case OPTIONS.Slide:
+                if (open) {
+                    transform.position = Vector3.Lerp (transform.position, targetPos, Time.deltaTime * speed);
+                } else {
+                    transform.position = Vector3.Lerp (transform.position, startPos, Time.deltaTime * speed);
+                }
+                break;
         }
     }
 

@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour {
 
     void Start () {
         vampiresRemainingCount = FindObjectsOfType<VampireController> ().Length;
-        Instantiate (player, transform.position, transform.rotation);
-        Instantiate (hud);
+        player = Instantiate (player, transform.position, transform.rotation);
+        hud = Instantiate (hud);
 
         int sceneIndex = SceneManager.GetActiveScene ().buildIndex;
         if (sceneIndex > 0) {
@@ -30,15 +30,18 @@ public class GameManager : MonoBehaviour {
             foreach (OpenCoffin coffin in FindObjectsOfType<OpenCoffin> ()) {
                 coffin.OnOpen ();
             }
-            HUDController hudController = FindObjectOfType<HUDController>();
+            HUDController hudController = FindObjectOfType<HUDController> ();
             hudController.Log ("All vampires have been slain.");
             hudController.Log ("You can now exit the level.");
         }
     }
 
     public void Die () {
-        Time.timeScale = 0;
-        FirstPersonController controller = player.GetComponent<FirstPersonController>();
-        FindObjectOfType<HUDController> ().Log("You are dead");
+        FirstPersonController controller = FindObjectOfType<FirstPersonController> ();
+        Destroy (controller);
+        WeaponController weaponController = FindObjectOfType<WeaponController>();
+        Destroy (weaponController.gameObject);
+        Destroy (weaponController);
+        hud.GetComponent<HUDController>().Die ();
     }
 }

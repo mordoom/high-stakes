@@ -57,6 +57,11 @@ public class HUDController : MonoBehaviour {
         log.text = newLog;
     }
 
+    internal void Die () {
+        Log ("You are dead");
+        playerHurt.SetActive (true);
+    }
+
     public void ShowPlayerHurt () {
         playerHurt.SetActive (true);
         StartCoroutine (ClearPlayerHurt ());

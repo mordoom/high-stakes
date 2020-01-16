@@ -55,12 +55,13 @@ MonoBehaviour:
   auto: 0
   projectile: 0
   effectiveRange: 9999
-  bulletForce: 3
+  bulletForce: 100
   pellets: 4
   spreadDeviation: 20
   shootSound: {fileID: 0}
   initalAmmo: -1
   startCollected: 1
+  muzzleFlash: {fileID: 0}
 --- !u!95 &5886354201221100303
 Animator:
   serializedVersion: 3
